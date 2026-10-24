@@ -120,7 +120,7 @@ class DeployableTemplateTests(unittest.TestCase):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("vercel.com/new/clone", readme)
         self.assertIn("app.netlify.com/start/deploy", readme)
-        self.assertIn("tree%2Fmain%2Ftemplate", readme)
+        self.assertIn("root-directory=template", readme)
 
 
 if __name__ == "__main__":
