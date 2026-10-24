@@ -26,6 +26,11 @@
 
 演示文件：[公开静音 MP4](assets/yomemado-showcase-silent.mp4)（1280 × 720，约 2.3 MB）· [视频镜头说明](docs/视频演示.md)。
 
+## 直接体验
+
+- **[观看 45 秒真实作品演示](https://jianjidanbenren-eng.github.io/yomemado/#film)**：公开静音版，保留真实作品画面，不包含私人音乐。
+- **[打开互动体验样机](https://jianjidanbenren-eng.github.io/yomemado/demo/)**：点击地图、RELEASE 出票、翻面、下载独立示例 PNG、亲手入藏。使用三个虚构地点和独立绘制的简化界面，不连接私人信件数据，也不等同 W51 完整源码。
+
 ## 一封信怎样抵达
 
 | 阶段 | 做的事 | 留下的证据 |
