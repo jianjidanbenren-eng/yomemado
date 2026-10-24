@@ -77,5 +77,51 @@ class ShowcaseAssetTests(unittest.TestCase):
         self.assertEqual(page.count('class="film-chapter"'), 5)
 
 
+class DeployableTemplateTests(unittest.TestCase):
+    def test_template_files_are_present(self):
+        required = [
+            "index.html",
+            "config.js",
+            "letters.js",
+            "README.md",
+            "USAGE.md",
+            "LICENSE",
+            "vercel.json",
+            "netlify.toml",
+        ]
+        for name in required:
+            self.assertTrue((ROOT / "template" / name).is_file(), name)
+
+    def test_template_is_config_driven(self):
+        page = (ROOT / "template" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('src="./config.js"', page)
+        self.assertIn('src="./letters.js"', page)
+        self.assertIn("localStorage", page)
+        self.assertIn("RELEASE", page)
+        self.assertIn("COLLECT", page)
+
+    def test_public_template_has_no_private_service_links(self):
+        content = "\n".join(
+            p.read_text(encoding="utf-8")
+            for p in (ROOT / "template").glob("*")
+            if p.is_file() and p.suffix in {".html", ".js", ".md", ".json", ".toml"}
+        )
+        forbidden = [
+            "humblesloth128.chatgpt.site",
+            "api/private/letters",
+            "W51 正式离线版",
+            "OPENAI_API_KEY",
+            "VERCEL_TOKEN",
+        ]
+        for needle in forbidden:
+            self.assertNotIn(needle, content)
+
+    def test_readme_has_one_click_deploy_buttons(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("vercel.com/new/clone", readme)
+        self.assertIn("app.netlify.com/start/deploy", readme)
+        self.assertIn("tree%2Fmain%2Ftemplate", readme)
+
+
 if __name__ == "__main__":
     unittest.main()
