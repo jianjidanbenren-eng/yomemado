@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+assets/fonts/
+assets/music/
+private/
+output/
+*.otf
+*.ttf
+*.mp3
+*.m4a
+*.wav
+*.zip

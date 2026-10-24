@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="游目窗 · 浮世来信机：从一台会寄出世界邮票的机器，到能持续接信的创作流程。">
+  <title>游目窗 · 浮世来信机｜项目手记</title>
+  <style>
+    :root { --paper:#f4efea; --paper2:#ebe4db; --ink:#1b365d; --muted:#53636a; --red:#7c2d12; --sea:#4a777a; --line:#c6bdb2; --gold:#b89252; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Georgia,"Noto Serif CJK SC","Songti SC",serif; line-height:1.85; }
+    a { color:inherit; text-decoration-color:var(--red); text-underline-offset:4px; }
+    a:focus-visible { outline:2px solid var(--red); outline-offset:4px; }
+    .wrap { width:min(100% - 44px,960px); margin:auto; }
+    .top { background:var(--ink); color:var(--paper); border-bottom:4px solid var(--gold); }
+    .top .wrap { display:flex; justify-content:space-between; align-items:center; gap:20px; min-height:66px; }
+    .brand,.top nav,.kicker,.eyebrow,.stamp-label,.foot { font-family:ui-sans-serif,system-ui,-apple-system,"Noto Sans CJK SC",sans-serif; }
+    .brand { font-size:13px; letter-spacing:.2em; font-weight:700; }
+    nav { display:flex; flex-wrap:wrap; gap:19px; font-size:12px; }
+    nav a { text-decoration:none; }
+    nav a:hover { color:#dfc995; }
+    .hero { padding:88px 0 94px; border-bottom:2px solid var(--ink); position:relative; overflow:hidden; background-image:linear-gradient(#1b365d0d 1px,transparent 1px),linear-gradient(90deg,#1b365d0d 1px,transparent 1px); background-size:36px 36px; }
+    .hero::after { content:""; position:absolute; width:410px; height:410px; border:1px solid #1b365d24; border-radius:50%; right:-180px; top:-150px; box-shadow:0 0 0 36px #f4efea,0 0 0 37px #1b365d24,0 0 0 76px #f4efea,0 0 0 77px #1b365d24; pointer-events:none; }
+    .hero .wrap { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr) 300px; align-items:center; gap:38px; }
+    .kicker { color:var(--red); font-size:11px; letter-spacing:.28em; font-weight:700; }
+    h1 { font-size:clamp(44px,7vw,76px); font-weight:600; letter-spacing:.045em; line-height:1.28; margin:27px 0; }
+    .lead { font-size:clamp(17px,2.2vw,21px); max-width:620px; line-height:2; }
+    .hero-note { margin-top:38px; display:inline-block; padding:9px 14px; border-left:3px solid var(--red); background:var(--paper2); color:var(--ink); font-size:12px; font-family:ui-sans-serif,system-ui,sans-serif; letter-spacing:.07em; }
+    .machine { width:100%; padding:12px; border:4px solid #572613; border-radius:13px; background:linear-gradient(130deg,#a74732,#7c2d12 63%,#a34b37); box-shadow:8px 13px 0 #1b365d24, inset 0 0 0 2px #d58a6b; transform:rotate(2deg); }
+    .machine-head { padding:13px 8px; border:2px solid #b89252; background:#f1e6ca; color:var(--ink); text-align:center; font-size:16px; letter-spacing:.1em; font-weight:700; }
+    .machine-map { position:relative; height:155px; margin:11px 0; border:7px solid var(--ink); border-radius:4px; background:linear-gradient(90deg,#ffffff25 1px,transparent 1px),linear-gradient(#ffffff25 1px,transparent 1px),#85a9b1; background-size:32px 31px; box-shadow:inset 0 0 0 2px #e5e4d6; }
+    .machine-map::before { content:""; position:absolute; inset:22px 20px; border:2px solid #f4efea; border-radius:50%; transform:rotate(-16deg); opacity:.75; }
+    .machine-map::after { content:""; position:absolute; top:61px; left:105px; width:11px; height:11px; border-radius:50%; background:var(--red); border:3px solid var(--paper); box-shadow:0 0 0 5px #7c2d1280; }
+    .machine-control { display:flex; gap:12px; align-items:center; padding:6px 3px; }
+    .machine-screen { flex:1; padding:15px 4px; background:#123a43; border:3px solid #b89252; color:#e4e3d4; text-align:center; font:600 10px ui-monospace,monospace; letter-spacing:.12em; }
+    .machine-knob { width:34px; height:34px; flex:none; border:5px solid #7e5a2a; border-radius:50%; background:radial-gradient(circle at 33% 25%,#e5c986,#a67a3a); }
+    .machine-slot { width:58%; height:7px; margin:12px auto 6px; background:#183647; border:2px solid #b89252; border-radius:8px; }
+    section { padding:80px 0; border-bottom:1px solid var(--line); }
+    .eyebrow { display:inline-block; background:var(--red); color:var(--paper); padding:4px 10px; font-size:11px; letter-spacing:.16em; font-weight:700; }
+    h2 { font-size:clamp(29px,4vw,42px); font-weight:500; line-height:1.45; margin:13px 0 27px; }
+    .intro { max-width:690px; font-size:17px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:42px; }
+    .card { background:#faf7f1; padding:30px 32px 35px; min-height:180px; }
+    .card .num { color:var(--red); font:700 11px ui-sans-serif,system-ui,sans-serif; letter-spacing:.15em; }
+    .card h3 { font-size:22px; font-weight:500; margin:12px 0 7px; }
+    .card p { margin:0; color:#40555a; font-size:14px; }
+    .timeline { margin:46px 0 0; border-top:1px solid var(--line); }
+    .step { display:grid; grid-template-columns:115px minmax(0,1fr); border-bottom:1px solid var(--line); padding:22px 0; gap:18px; }
+    .step b { color:var(--red); font:600 12px ui-sans-serif,system-ui,sans-serif; letter-spacing:.08em; padding-top:5px; }
+    .step p { margin:0; }
+    .rules { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+    .rule { border-top:3px solid var(--sea); padding-top:22px; }
+    .rule h3 { font-size:19px; font-weight:500; margin:0 0 10px; }
+    .rule p { font-size:14px; margin:0; color:#40555a; }
+    .quote { margin:36px 0 0; padding:26px 32px; background:var(--ink); color:var(--paper); border-left:5px solid var(--gold); font-size:18px; }
+    .links { display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; }
+    .links a { display:inline-block; padding:11px 16px; border:1px solid var(--ink); font:600 12px ui-sans-serif,system-ui,sans-serif; text-decoration:none; }
+    .links a:hover { background:var(--ink); color:var(--paper); }
+    .disclosure { color:var(--muted); font-size:14px; max-width:740px; }
+    footer { padding:27px 0 42px; background:var(--ink); border-top:5px solid var(--gold); }
+    .foot { display:flex; justify-content:space-between; gap:20px; color:var(--paper); font-size:11px; letter-spacing:.06em; }
+    @media(max-width:800px) { .hero .wrap { grid-template-columns:1fr; } .machine { width:min(300px,100%); transform:none; } }
+    @media(max-width:650px) { .top .wrap { align-items:flex-start; flex-direction:column; padding:17px 0; gap:6px; } .hero { padding:65px 0 72px; } section { padding:62px 0; } .grid,.rules { grid-template-columns:1fr; } .card { min-height:unset; } .step { grid-template-columns:75px 1fr; gap:12px; } .foot { flex-direction:column; gap:5px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="top"><div class="wrap"><div class="brand">游目窗 / YOMÉMADO</div><nav aria-label="页面导航"><a href="#idea">构思</a><a href="#journey">制作</a><a href="#lessons">复盘</a><a href="#share">公开内容</a></nav></div></header>
+  <main>
+    <div class="hero"><div class="wrap"><div><div class="kicker">PROJECT NOTES · 2026</div><h1>游目窗<br>浮世来信机</h1><p class="lead">世界地图上亮起一个红点。按下出票键，取出一枚有画的邮票；翻到背面，读一封来自远方的短信。</p><div class="hero-note">一件从构思、声音与制票，走到持续接信的私人作品</div></div><div class="machine" aria-hidden="true"><div class="machine-head">游目窗 · 浮世来信机</div><div class="machine-map"></div><div class="machine-control"><div class="machine-knob"></div><div class="machine-screen">WORLD LETTER MAP<br>INCOMING · 001</div><div class="machine-knob"></div></div><div class="machine-slot"></div></div></div></div>
+    <section id="idea"><div class="wrap"><div class="eyebrow">01 / THE IDEA</div><h2>让一封信有抵达的过程</h2><p class="intro">我们想要的不是滚动的信息列表。地图负责发现，机器负责出票，邮票把地点留在手里。最新一封抵达时先等着，收信人亲自点下「入藏」，才把它放进自己的藏信册。</p><div class="grid"><div class="card"><div class="num">DISCOVER</div><h3>地图红点</h3><p>每枚邮票指向经过核实的真实地点。屏幕显示地点全名，印刷区才使用准确的短名。</p></div><div class="card"><div class="num">RELEASE</div><h3>出票与翻面</h3><p>机械动作、翻纸和逐段出现的短笺组成阅读节奏；声音与按钮动作一起设计。</p></div><div class="card"><div class="num">MAKE</div><h3>无字画芯</h3><p>照片转绘或自主采风先得到一幅插画，再由固定版式加字、编号和透明齿孔。</p></div><div class="card"><div class="num">KEEP</div><h3>自己决定入藏</h3><p>地图显示有效来信；藏信按新到旧排列。最新一封的入藏权交给收信人。</p></div></div></div></section>
+    <section id="journey"><div class="wrap"><div class="eyebrow">02 / THE JOURNEY</div><h2>从手作机器，到能反复寄信</h2><div class="timeline"><div class="step"><b>构思</b><p>确定红点、出票、翻面和手动入藏，把邮票当作故事的入口。</p></div><div class="step"><b>机器</b><p>反复校对机身布局与手机阅读；为机械声、纸声、钢笔声和字句安排同一时间轴。</p></div><div class="step"><b>制票</b><p>确立「无字画芯 → 固定母版」：正反面各 736 × 1040 RGBA，共用齿孔 Alpha。</p></div><div class="step"><b>接信</b><p>保留旧信，用受限的数据通道加入新信；发布后仍到真实网页检查地图、出票、翻面与撤回。</p></div><div class="step"><b>持续</b><p>定时任务启动采风与制作。每次都核对来源、图片、索引和网页，验收后才说新信到了。</p></div></div></div></section>
+    <section id="lessons"><div class="wrap"><div class="eyebrow">03 / THE LESSONS</div><h2>几条刻进流程里的教训</h2><div class="rules"><div class="rule"><h3>画芯不写字</h3><p>整枚交给图像模型会带来乱码与漂移。字和齿孔留给可重复的排版程序。</p></div><div class="rule"><h3>发布不等于可见</h3><p>后台有编号还不够。浏览器要取得完整图片和数据，真实页面也要能出票与翻面。</p></div><div class="rule"><h3>旧收藏不代表新选择</h3><p>浏览器旧标记曾让最新邮票提前入册。手动入藏须与当前信件绑定，撤回后重新计算。</p></div></div><p class="quote">一枚新邮票的完成条件，是收信人真的能打开它。</p></div></section>
+    <section id="share"><div class="wrap"><div class="eyebrow">04 / OPEN NOTES</div><h2>先把能分享的部分写清楚</h2><p class="intro">这里公开项目方法、制作工序、踩坑记录和独立的 PNG 检查工具。私人来信、原网页、固定母版、音乐、字体文件及写入凭据不在这个版本中。</p><p class="disclosure">本页是项目手记，不是可替代原站的演示站，也不连接私人数据。使用这些方法制作自己的作品时，请准备拥有使用权的图像、字体与声音。</p><div class="links"><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/README.md">项目 README</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/制作流程.md">制作流程</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/踩坑复盘.md">踩坑复盘</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/公开边界.md">素材边界</a></div></div></section>
+  </main>
+  <footer><div class="wrap foot"><span>游目窗 · 浮世来信机</span><span>方法与原创工具 MIT · 私人素材未随附</span></div></footer>
+</body>
+</html>
