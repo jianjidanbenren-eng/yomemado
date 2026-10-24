@@ -10,7 +10,22 @@
 
 这个仓库用**真实的 45 秒项目演示、开发手记与可复用的检查工具**，分享项目如何从构思、声音和制票规范，走到定时采风、投递、网页接信与验收。这里不是私人 W51 网页的源码副本，也没有公开可访问的私人来信站点。
 
-> 公开版阶段：真实项目的**静音视频 + 项目手记 + 邮票图片检查工具**。完整 W48 母版、W51 主机、私人来信、字体和音乐尚未作为可复用发行包开放。这里暂不是一键部署的网页源码。
+> 公开版现在包含：**真实项目静音视频 + 项目手记 + 邮票检查工具 + 可一键部署的独立模板**。模板是为公开使用重新整理的静态版本，不包含私人 W51、私人来信、音乐、字体或写入凭据。
+
+## 一键部署你自己的游目窗
+
+不需要先配置服务器或 API。点击下面任意一个按钮，会复制公开模板并部署出你自己的站点：
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjianjidanbenren-eng%2Fyomemado%2Ftree%2Fmain%2Ftemplate&project-name=my-yomemado&repository-name=my-yomemado)
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jianjidanbenren-eng/yomemado&create_from_path=template)
+
+部署后主要改两个文件：
+
+- `config.js`：站名、收信人、初始入藏编号。
+- `letters.js`：地点、坐标、标题、短笺和配色。
+
+模板本身已经包含地图红点、RELEASE 出票、翻面、PNG 下载和手动入藏。完整说明见 [template/README.md](template/README.md) 和 [template/USAGE.md](template/USAGE.md)。
 
 ## 先看见它，再理解它
 
