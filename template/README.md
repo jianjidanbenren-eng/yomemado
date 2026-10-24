@@ -4,11 +4,11 @@
 
 ## 一键部署
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjianjidanbenren-eng%2Fyomemado%2Ftree%2Fmain%2Ftemplate&project-name=my-yomemado&repository-name=my-yomemado)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjianjidanbenren-eng%2Fyomemado&root-directory=template&project-name=my-yomemado&repository-name=my-yomemado)
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jianjidanbenren-eng/yomemado&create_from_path=template)
 
-部署成功后只需要改两个文件：
+这条 Vercel 路径已经按 `root-directory=template` 做过实际预览部署验证；模板不需要环境变量。\n\n部署成功后只需要改两个文件：
 
 - `config.js`：站名、收信人、初始入藏状态。
 - `letters.js`：自己的来信、地点、经纬度、短笺与配色。
