@@ -1,0 +1,58 @@
+{
+  "id": "004",
+  "mode": "photo",
+  "sourcePhoto": "004-source.png",
+  "sourcePhotoDetails": {
+    "file": "004-source.png",
+    "originalFilename": "13a135c2ef6fae503cbb5c44c5c94b6a(2).png",
+    "sha256": "7ec9eb357acd43771bda82f38b7299634ba3bacdee0d4076e84dfcd7932e77c8",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "providedBy": "User",
+    "photographer": "Not independently verified",
+    "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+  },
+  "place": "Yamdrok Lake",
+  "region": "Shannan, Tibet, China",
+  "date": "2026-10-28",
+  "dateStatus": "Public Skill example date; not a private mailbox delivery date",
+  "title": "羊卓雍措（羊湖）",
+  "paragraphs": [
+    "蓝绿湖水绕过山脊，雪峰藏在云后。沿着照片里的岸线看过去，远方忽然有了清楚的颜色。",
+    "这是一枚羊卓雍措题材的照片转绘示例。把山湖的开阔留在小小纸面上，也给忙碌的一天留一点慢下来的余地。"
+  ],
+  "signature": "—— 游目窗 · 公开示例",
+  "stamp": {
+    "regionShort": "SHANNAN",
+    "pictureTitleShort": "YAMDROK LAKE",
+    "pictureSubtitle": "THE TURQUOISE SHORE",
+    "footerShortLines": [
+      "YAMDROK",
+      "LAKE"
+    ]
+  },
+  "sourceArtStatus": "New photo-to-woodblock illustration generated with built-in image_gen on 2026-10-28 from the included source photo; fixed-master composition performed afterward",
+  "geographyStatus": "地点标签由用户确认；官方资料核对到山南地区，具体摄影点和坐标未独立核实。",
+  "latitude": null,
+  "longitude": null,
+  "coordinatesVerified": false,
+  "sample": true,
+  "publicationStatus": "Skill example only; not added to the machine mailbox or any private delivery feed",
+  "facts": {
+    "citations": [
+      "https://www.shannan.gov.cn/zjsn/snly/jdjs/201902/t20190215_17221.html"
+    ],
+    "checkedOn": "2026-10-28",
+    "scope": "Regional background only; the photo supplies composition and objects, and the user supplies the scene label"
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "sourceImage": "004-source.png",
+    "styleReference": "../assets/style-reference.png",
+    "preserveElements": "原始照片中的蓝绿高山湖、从左下弯到右侧的湖岸线、中央裸露灰褐半岛山脊、后方雪山与云层、蓝天下的光照，以及左下道路旁红色镂空小构筑物、金色顶饰和白色基座。必须保留前景小构筑物的原有大体形状与所处左下位置，不将它改成寺庙或增加佛像。水域和山体相对位置来自图1，不从地名想象另一片湖。",
+    "focalPoint": "明亮蓝绿湖水与灰褐岸线、左下前景红金小构筑物",
+    "prompt": "你是「游目窗 · 浮世来信机」系列的邮票【中央插画】制作师。本轮仅做“参考照片 → 纯插画”的图像转换，不设计或输出整张邮票。\n\n输入：\nA. 原始参考照片：是构图、主体、空间、物体关系、视角和光线方向的唯一事实依据。\nB. 系列质感参考：公开包 style-reference.png 中央画面的局部。仅学习浮世绘式木版印刷、色彩节制、刻线与油墨颗粒，不复制风格参考中特有的人物、动物、建筑、标识或文字。\nC. 当前场景保留要素：原始照片中的蓝绿高山湖、从左下弯到右侧的湖岸线、中央裸露灰褐半岛山脊、后方雪山与云层、蓝天下的光照，以及左下道路旁红色镂空小构筑物、金色顶饰和白色基座。必须保留前景小构筑物的原有大体形状与所处左下位置，不将它改成寺庙或增加佛像。水域和山体相对位置来自图1，不从地名想象另一片湖。\nD. 当前画面的主要焦点：明亮蓝绿湖水与灰褐岸线、左下前景红金小构筑物\n\n任务：将 A 转译成有细致刻线、层叠平涂色块、木版套印痕迹和天然纸纤维般颗粒的精致复古版画插画。保持原图能辨认的主体形状、相对位置、建筑比例和轮廓、山体走势、岸线/窗框结构、远近层次与光照方向。允许简化琐碎摄影细节，但不允许凭空增加或删除重要地标与建筑部件。\n\n画风：昭和时代旅行版画与浮世绘木版视觉气质的融合；清晰的色块和有呼吸感的手工刻线；少量自然套印偏差、油墨墨点、轻微磨损；整体古雅、沉静、精致、有空间深度，但不是写实照片滤镜。主色依据照片保留，统一以旧纸米白、灰靛蓝、深海蓝、砖朱红、柔金赭、灰绿等克制的印刷色为基准；不要强行把不同地点全变成同一种天气或同一种色相。\n\n构图和尺寸：最终画面需适合中央版心宽624高723（宽高比约0.863，竖版）。主体必须完整、清晰，有足够背景层次。优先通过重新构图并适度延展天空、山坡、水面或墙面等真实连续背景来适配比例，不得横向/纵向拉伸。禁止为适配版心而切掉主建筑、窗洞核心轮廓或关键前景。左上部会由独立排版层叠加米白色标题，因此尽量保留简洁且不高频杂乱的背景；如自然画面太亮，之后由模板添加统一文字衬底，当前不要自己画标题或色块底板。\n\n明确禁止：不要写任何字母、汉字、数字、邮票编号、地名或标题；不要绘制外框、齿孔、邮戳、纸张外边缘、角标、标识、Logo、版式装饰；不要生成成品邮票、画框、画册、明信片或宣传海报；不要凭空加人物、动物、日月、旗帜、寺庙、船只、飞鸟等源图不存在的重要对象；不要把实际建筑改成虚构建筑；不要改造真实窗棂纹样；不要现代三维渲染、塑料质感、过锐锐化、霓虹高饱和、油画厚涂、平滑矢量渐变、泛黄脏污覆盖主体、随机英文乱码。\n\n最终只输出一幅不带字、不带外边框的纯插画。判断合格的依据是：①能认出原图，②与 style-reference.png 的插画属于同一套木版印刷视觉系统，③主体能完整放入624×723版心，④没有任何AI生成的文字和邮票装饰。\n\n本次输入图1是唯一构图与对象依据；输入图2仅为木版风格参考。地点标签由用户确认为西藏山南羊卓雍措。不要复制图2的宫殿、不同的山线或前景倒影。不增加冰川浮冰，不改成普莫雍错。完整保留重要前景；为了适配较宽版心，适度延展左右山坡与水面，不能裁掉前景构筑物。\n输出一张宽高比624:723的纯插画，满版无外边缘，不画文字与标识。"
+  }
+}

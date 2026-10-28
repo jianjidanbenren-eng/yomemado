@@ -37,6 +37,6 @@
 | Mono Color Skill | MIT · Copyright (c) 2026 Yan Liu | [MIT 原文](../licenses/mono-color-skill-MIT.txt) |
 | Photo Revival | MIT · Copyright (c) 2026 FANTASY | [MIT 原文](../licenses/photo-revival-MIT.txt) |
 
-上述许可针对各仓库声明覆盖的指令、代码或文档，并不自动覆盖其全部示例图和第三方研究图。特别是 Mono Color 将视觉资产另列于 [ASSET-LICENSE.md](https://github.com/yanliudesign/mono-color-skill/blob/main/ASSET-LICENSE.md)，第三方研究图的来源状态另见 [REFERENCES.md](https://github.com/yanliudesign/mono-color-skill/blob/main/REFERENCES.md)。本包未搬运这些上游图片；随包画芯的历史来源与未核实项在 `examples/provenance.json`。
+上述许可针对各仓库声明覆盖的指令、代码或文档，并不自动覆盖其全部示例图和第三方研究图。特别是 Mono Color 将视觉资产另列于 [ASSET-LICENSE.md](https://github.com/yanliudesign/mono-color-skill/blob/main/ASSET-LICENSE.md)，第三方研究图的来源状态另见 [REFERENCES.md](https://github.com/yanliudesign/mono-color-skill/blob/main/REFERENCES.md)。本包未搬运这些上游图片；随包六组原图、画芯和双面成品的对应关系、生成方式与未核实项在 `examples/provenance.json`。原图由用户提供并指示纳入对照，不冒称用户是摄影者；原始图片与派生图涉及的第三方图像权益不由本包代码 MIT 重新授权，原图已有标识随原始字节保留。
 
 2026-10-28 核对的上游文件 Git blob：Ukiyoe v1.2 `68adfc13210bf43e2734b412c97ebbda8bbb187c`；Mono Color SKILL `cda828401533d914bb43cf569b92f63003968dde`；Photo Revival SKILL `8e758cb080f99bb2cae505492c8d86d2a36fac97`。这是本次核对快照，不是已证明的早期学习版本；上游今后可能继续变化。

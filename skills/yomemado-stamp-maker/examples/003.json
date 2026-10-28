@@ -1,7 +1,7 @@
 {
   "id": "003",
   "mode": "photo",
-  "sourcePhoto": "User-provided historical reference; original photograph is not distributed",
+  "sourcePhoto": "003-source.png",
   "place": "The Lingering Garden",
   "region": "Suzhou, Jiangsu, China",
   "date": "2026-10-28",
@@ -24,5 +24,17 @@
   "geographyStatus": "The Lingering Garden见苏州官方英文资料；画中具体房间未独立核实",
   "latitude": null,
   "longitude": null,
-  "coordinatesVerified": false
+  "coordinatesVerified": false,
+  "sourcePhotoDetails": {
+    "file": "003-source.png",
+    "originalFilename": "测试C-苏州留园-用户原图.png",
+    "sha256": "366ad4032c71d2be1fe65bc0832b95c6232292c81bd8ed7ac9beb1ca775cc147",
+    "dimensions": [
+      1080,
+      1613
+    ],
+    "providedBy": "User",
+    "photographer": "Not independently verified",
+    "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+  }
 }

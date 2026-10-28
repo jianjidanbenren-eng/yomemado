@@ -1,0 +1,58 @@
+{
+  "id": "006",
+  "mode": "photo",
+  "sourcePhoto": "006-source.png",
+  "sourcePhotoDetails": {
+    "file": "006-source.png",
+    "originalFilename": "fcc8538505a380ad18adaea8580f892d(2).png",
+    "sha256": "9410b3e395e89a38d8dd6a4c7b58d1cb64d72f9fc500a3c27ec67d31e2a0d50d",
+    "dimensions": [
+      1080,
+      1440
+    ],
+    "providedBy": "User",
+    "photographer": "Not independently verified",
+    "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+  },
+  "place": "Moganshan guesthouse",
+  "region": "Deqing, Huzhou, Zhejiang, China",
+  "date": "2026-10-28",
+  "dateStatus": "Public Skill example date; not a private mailbox delivery date",
+  "title": "莫干山｜山景长窗民宿",
+  "paragraphs": [
+    "一线横窗把层叠的山与云收进屋里。木桌向远处伸去，杯子安安静静地放着，像替人留住了一会儿清闲。",
+    "这是一枚莫干山民宿题材的照片转绘示例。地点沿用用户确认，不编写具体民宿名；愿这扇小窗，也能让读信的人歇一歇。"
+  ],
+  "signature": "—— 游目窗 · 公开示例",
+  "stamp": {
+    "regionShort": "DEQING",
+    "pictureTitleShort": "MOGANSHAN",
+    "pictureSubtitle": "MOUNTAINS THROUGH A WINDOW",
+    "footerShortLines": [
+      "MOGAN",
+      "SHAN"
+    ]
+  },
+  "sourceArtStatus": "New photo-to-woodblock illustration generated with built-in image_gen on 2026-10-28 from the included source photo; fixed-master composition performed afterward",
+  "geographyStatus": "地区标签由用户确认，官方资料核对到浙江湖州德清；具体民宿名称、房间和摄影坐标未知。",
+  "latitude": null,
+  "longitude": null,
+  "coordinatesVerified": false,
+  "sample": true,
+  "publicationStatus": "Skill example only; not added to the machine mailbox or any private delivery feed",
+  "facts": {
+    "citations": [
+      "https://www.ezhejiang.gov.cn/2020-06/03/c_497515.htm"
+    ],
+    "checkedOn": "2026-10-28",
+    "scope": "Regional background only; the photo supplies composition and objects, and the user supplies the scene label"
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "sourceImage": "006-source.png",
+    "styleReference": "../assets/style-reference.png",
+    "preserveElements": "原始照片中的深灰混凝土墙（模板孔与横纹）、上方暖木天花和横梁、墙中部一条极细长的单一横向矩形取景窗（无竖向分隔），窗外层叠云雾山景；从底部近处伸向窗下远处的两块拼接木板长桌，桌上只一只深褐杯；左侧壁龛与黑色小瓶，右下少量长凳软垫边缘。保持单杯、细长窄窗、窗占墙面很少的高度和桌面中缝与透视。",
+    "focalPoint": "横向细长山景窗、下方两板长桌的透视和唯一杯子",
+    "prompt": "你是「游目窗 · 浮世来信机」系列的邮票【中央插画】制作师。本轮仅做“参考照片 → 纯插画”的图像转换，不设计或输出整张邮票。\n\n输入：\nA. 原始参考照片：是构图、主体、空间、物体关系、视角和光线方向的唯一事实依据。\nB. 系列质感参考：公开包 style-reference.png 中央画面的局部。仅学习浮世绘式木版印刷、色彩节制、刻线与油墨颗粒，不复制风格参考中特有的人物、动物、建筑、标识或文字。\nC. 当前场景保留要素：原始照片中的深灰混凝土墙（模板孔与横纹）、上方暖木天花和横梁、墙中部一条极细长的单一横向矩形取景窗（无竖向分隔），窗外层叠云雾山景；从底部近处伸向窗下远处的两块拼接木板长桌，桌上只一只深褐杯；左侧壁龛与黑色小瓶，右下少量长凳软垫边缘。保持单杯、细长窄窗、窗占墙面很少的高度和桌面中缝与透视。\nD. 当前画面的主要焦点：横向细长山景窗、下方两板长桌的透视和唯一杯子\n\n任务：将 A 转译成有细致刻线、层叠平涂色块、木版套印痕迹和天然纸纤维般颗粒的精致复古版画插画。保持原图能辨认的主体形状、相对位置、建筑比例和轮廓、山体走势、岸线/窗框结构、远近层次与光照方向。允许简化琐碎摄影细节，但不允许凭空增加或删除重要地标与建筑部件。\n\n画风：昭和时代旅行版画与浮世绘木版视觉气质的融合；清晰的色块和有呼吸感的手工刻线；少量自然套印偏差、油墨墨点、轻微磨损；整体古雅、沉静、精致、有空间深度，但不是写实照片滤镜。主色依据照片保留，统一以旧纸米白、灰靛蓝、深海蓝、砖朱红、柔金赭、灰绿等克制的印刷色为基准；不要强行把不同地点全变成同一种天气或同一种色相。\n\n构图和尺寸：最终画面需适合中央版心宽624高723（宽高比约0.863，竖版）。主体必须完整、清晰，有足够背景层次。优先通过重新构图并适度延展天空、山坡、水面或墙面等真实连续背景来适配比例，不得横向/纵向拉伸。禁止为适配版心而切掉主建筑、窗洞核心轮廓或关键前景。左上部会由独立排版层叠加米白色标题，因此尽量保留简洁且不高频杂乱的背景；如自然画面太亮，之后由模板添加统一文字衬底，当前不要自己画标题或色块底板。\n\n明确禁止：不要写任何字母、汉字、数字、邮票编号、地名或标题；不要绘制外框、齿孔、邮戳、纸张外边缘、角标、标识、Logo、版式装饰；不要生成成品邮票、画框、画册、明信片或宣传海报；不要凭空加人物、动物、日月、旗帜、寺庙、船只、飞鸟等源图不存在的重要对象；不要把实际建筑改成虚构建筑；不要改造真实窗棂纹样；不要现代三维渲染、塑料质感、过锐锐化、霓虹高饱和、油画厚涂、平滑矢量渐变、泛黄脏污覆盖主体、随机英文乱码。\n\n最终只输出一幅不带字、不带外边框的纯插画。判断合格的依据是：①能认出原图，②与 style-reference.png 的插画属于同一套木版印刷视觉系统，③主体能完整放入624×723版心，④没有任何AI生成的文字和邮票装饰。\n\n本次输入图1是唯一构图与对象依据；输入图2仅为木版风格参考。用户确认地点为莫干山民宿，具体民宿名未知。原图是混凝土墙中的窄横窗，不得改成大面积整墙落地窗、多扇竖窗或普通木窗格。不要增加竹枝遮挡窗口或桌上物件。木版风格可以简化模板孔，但保留建筑材质与空间比例；适配较宽版心只延展两侧已有墙面与桌面，不把横窗放大增高。\n输出一张宽高比624:723的纯插画，满版无外边缘，不画文字与标识。"
+  }
+}

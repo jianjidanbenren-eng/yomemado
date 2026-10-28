@@ -1,7 +1,7 @@
 {
   "id": "002",
   "mode": "photo",
-  "sourcePhoto": "User-provided historical reference; original photograph is not distributed",
+  "sourcePhoto": "002-source.png",
   "place": "Pumo Yumco",
   "region": "Shannan, Tibet, China",
   "date": "2026-10-28",
@@ -24,5 +24,17 @@
   "geographyStatus": "英文转写存在不同拼法，本轮以Pumo Yumco作为邮票版式写法；位置未独立核实",
   "latitude": null,
   "longitude": null,
-  "coordinatesVerified": false
+  "coordinatesVerified": false,
+  "sourcePhotoDetails": {
+    "file": "002-source.png",
+    "originalFilename": "测试B-山南普莫雍错-用户原图.png",
+    "sha256": "ad727e4a13d0dece9db92f14e7f2c47727eab6d5ac4d4bbefd3c8cc0bc0f1075",
+    "dimensions": [
+      1080,
+      1919
+    ],
+    "providedBy": "User",
+    "photographer": "Not independently verified",
+    "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+  }
 }
