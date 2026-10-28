@@ -10,9 +10,31 @@
         "art": "001-art.png",
         "data": "001.json",
         "front": "001-front.png",
-        "back": "001-back.png"
+        "back": "001-back.png",
+        "source": "001-source.png"
       },
-      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28"
+      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28",
+      "sourcePhoto": {
+        "file": "001-source.png",
+        "originalFilename": "测试A-拉萨布达拉宫-用户原图.png",
+        "sha256": "79cdefb6eddf5adcd68bcf920e6de17cc684f382bc8334ed9f98628735a9d3e1",
+        "dimensions": [
+          1080,
+          1920
+        ],
+        "providedBy": "User",
+        "photographer": "Not independently verified",
+        "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+      },
+      "validation": {
+        "ok": true,
+        "size_736x1040": true,
+        "rgba": true,
+        "same_alpha": true,
+        "transparent_outer_corners": true,
+        "has_transparency": true,
+        "has_opaque_paper": true
+      }
     },
     {
       "id": "002",
@@ -24,9 +46,31 @@
         "art": "002-art.png",
         "data": "002.json",
         "front": "002-front.png",
-        "back": "002-back.png"
+        "back": "002-back.png",
+        "source": "002-source.png"
       },
-      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28"
+      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28",
+      "sourcePhoto": {
+        "file": "002-source.png",
+        "originalFilename": "测试B-山南普莫雍错-用户原图.png",
+        "sha256": "ad727e4a13d0dece9db92f14e7f2c47727eab6d5ac4d4bbefd3c8cc0bc0f1075",
+        "dimensions": [
+          1080,
+          1919
+        ],
+        "providedBy": "User",
+        "photographer": "Not independently verified",
+        "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+      },
+      "validation": {
+        "ok": true,
+        "size_736x1040": true,
+        "rgba": true,
+        "same_alpha": true,
+        "transparent_outer_corners": true,
+        "has_transparency": true,
+        "has_opaque_paper": true
+      }
     },
     {
       "id": "003",
@@ -38,19 +82,145 @@
         "art": "003-art.png",
         "data": "003.json",
         "front": "003-front.png",
-        "back": "003-back.png"
+        "back": "003-back.png",
+        "source": "003-source.png"
       },
-      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28"
+      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28",
+      "sourcePhoto": {
+        "file": "003-source.png",
+        "originalFilename": "测试C-苏州留园-用户原图.png",
+        "sha256": "366ad4032c71d2be1fe65bc0832b95c6232292c81bd8ed7ac9beb1ca775cc147",
+        "dimensions": [
+          1080,
+          1613
+        ],
+        "providedBy": "User",
+        "photographer": "Not independently verified",
+        "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+      },
+      "validation": {
+        "ok": true,
+        "size_736x1040": true,
+        "rgba": true,
+        "same_alpha": true,
+        "transparent_outer_corners": true,
+        "has_transparency": true,
+        "has_opaque_paper": true
+      }
+    },
+    {
+      "id": "004",
+      "place": "Yamdrok Lake",
+      "source": "User-supplied source photo on 2026-10-28; new image_gen photo conversion and fixed-master pair",
+      "directNewAIArtworkGenerationVerified": true,
+      "coordinatesVerified": false,
+      "files": {
+        "source": "004-source.png",
+        "art": "004-art.png",
+        "data": "004.json",
+        "front": "004-front.png",
+        "back": "004-back.png"
+      },
+      "finishedPairSource": "Rendered from the bundled new artwork and JSON with the existing scripts/render_stamp.py and assets/master.png",
+      "sourcePhoto": {
+        "file": "004-source.png",
+        "originalFilename": "13a135c2ef6fae503cbb5c44c5c94b6a(2).png",
+        "sha256": "7ec9eb357acd43771bda82f38b7299634ba3bacdee0d4076e84dfcd7932e77c8",
+        "dimensions": [
+          1080,
+          1920
+        ],
+        "providedBy": "User",
+        "photographer": "Not independently verified",
+        "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+      },
+      "validation": {
+        "ok": true,
+        "size_736x1040": true,
+        "rgba": true,
+        "same_alpha": true,
+        "transparent_outer_corners": true,
+        "has_transparency": true,
+        "has_opaque_paper": true
+      }
+    },
+    {
+      "id": "005",
+      "place": "Alfama, Lisbon",
+      "source": "User-supplied source photo on 2026-10-28; new image_gen photo conversion and fixed-master pair",
+      "directNewAIArtworkGenerationVerified": true,
+      "coordinatesVerified": false,
+      "files": {
+        "source": "005-source.png",
+        "art": "005-art.png",
+        "data": "005.json",
+        "front": "005-front.png",
+        "back": "005-back.png"
+      },
+      "finishedPairSource": "Rendered from the bundled new artwork and JSON with the existing scripts/render_stamp.py and assets/master.png",
+      "sourcePhoto": {
+        "file": "005-source.png",
+        "originalFilename": "2c1c4f852b349118d7df53eb29ad2bee(2).png",
+        "sha256": "c42a1304dae7e19529aed9beca13be3555675f21c0237438ea85d29ce02f3754",
+        "dimensions": [
+          1080,
+          1800
+        ],
+        "providedBy": "User",
+        "photographer": "Not independently verified",
+        "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+      },
+      "validation": {
+        "ok": true,
+        "size_736x1040": true,
+        "rgba": true,
+        "same_alpha": true,
+        "transparent_outer_corners": true,
+        "has_transparency": true,
+        "has_opaque_paper": true
+      }
+    },
+    {
+      "id": "006",
+      "place": "Moganshan guesthouse",
+      "source": "User-supplied source photo on 2026-10-28; new image_gen photo conversion and fixed-master pair",
+      "directNewAIArtworkGenerationVerified": true,
+      "coordinatesVerified": false,
+      "files": {
+        "source": "006-source.png",
+        "art": "006-art.png",
+        "data": "006.json",
+        "front": "006-front.png",
+        "back": "006-back.png"
+      },
+      "finishedPairSource": "Rendered from the bundled new artwork and JSON with the existing scripts/render_stamp.py and assets/master.png",
+      "sourcePhoto": {
+        "file": "006-source.png",
+        "originalFilename": "fcc8538505a380ad18adaea8580f892d(2).png",
+        "sha256": "9410b3e395e89a38d8dd6a4c7b58d1cb64d72f9fc500a3c27ec67d31e2a0d50d",
+        "dimensions": [
+          1080,
+          1440
+        ],
+        "providedBy": "User",
+        "photographer": "Not independently verified",
+        "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+      },
+      "validation": {
+        "ok": true,
+        "size_736x1040": true,
+        "rgba": true,
+        "same_alpha": true,
+        "transparent_outer_corners": true,
+        "has_transparency": true,
+        "has_opaque_paper": true
+      }
     }
   ],
   "historicalTestCount": 6,
-  "includedVerifiedSamples": 3,
-  "remainingScenes": [
-    "西藏山南・羊卓雍措（羊湖）",
-    "葡萄牙里斯本・阿尔法玛老城区｜窗与海",
-    "莫干山民宿｜山景长窗与木桌"
-  ],
-  "note": "The public Skill package contains three historical prepared-artwork examples, each with artwork, JSON data and a complete front/back PNG pair. Finished pairs are byte-identical to the public machine template. The other three locations are named, but their images and complete stamp pairs are not yet included. No new AI artwork generation was performed when adding the paired outputs.",
+  "includedVerifiedSamples": 6,
+  "remainingScenes": [],
+  "note": "Six Skill examples include source photo, artwork, JSON and complete front/back PNGs. 001–003 retain the existing historical artwork and approved template pairs; 004–006 are newly converted from user-supplied photos on 2026-10-28 and composed with the existing master. Only 001–003 are loaded by the unchanged public machine. Example numbers are independent of private mailbox numbers.",
   "sceneLocations": [
     {
       "testScene": 1,
@@ -63,7 +233,7 @@
       "testScene": 2,
       "scene": "蓝绿高山湖",
       "placeZh": "西藏山南・羊卓雍措（羊湖）",
-      "includedSampleId": null,
+      "includedSampleId": "004",
       "labelSource": "User confirmation on 2026-10-28"
     },
     {
@@ -77,7 +247,7 @@
       "testScene": 4,
       "scene": "窗与海",
       "placeZh": "葡萄牙里斯本・阿尔法玛老城区",
-      "includedSampleId": null,
+      "includedSampleId": "005",
       "labelSource": "User confirmation on 2026-10-28"
     },
     {
@@ -91,9 +261,9 @@
       "testScene": 6,
       "scene": "山景长窗民宿与木桌",
       "placeZh": "莫干山民宿",
-      "includedSampleId": null,
+      "includedSampleId": "006",
       "labelSource": "User confirmation on 2026-10-28"
     }
   ],
-  "sceneLabelNote": "The three remaining scene names are user-confirmed, not unknown. Six named scenes do not mean six distributed finished stamp pairs. Precise photo viewpoints, the specific guesthouse and coordinates are not independently verified. The blue-green Yamdrok lake scene and the existing snowy Pumo Yumco scene are separate."
+  "sceneLabelNote": "All six named scenes are included. Scene labels are user-confirmed; exact photo viewpoints, the specific Moganshan guesthouse and coordinates remain unverified. Yamdrok and Pumo Yumco are separate lake scenes. Source photos are preserved unchanged for comparison."
 }
