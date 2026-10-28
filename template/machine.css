@@ -398,6 +398,7 @@ body.fui-file-loaded .back-paper .meta{font-family:"FuiLetterChosen","STKaiti","
 /* Public skin. Chinese text uses a local Songti/serif font; no font files. */
 :root{--public-font:"SimSun","Songti SC",serif;--public-red:#a84a3e}
 body,.name-main,.archive h2,.back-paper .letter,.back-paper .sign{font-family:var(--public-font)!important}
+.reader-actions button,.reader-subtitle,.project-credits,.archive-note,.reprint-letter{font-family:var(--public-font)!important}
 #readerShade .cardface.back .stamp{background:transparent!important;clip-path:none!important;-webkit-mask-image:none!important;mask-image:none!important}
 #readerShade .cardface.back .stamp::before,#readerShade .cardface.back .stamp::after{display:none!important}
 #readerShade .cardface.back .stamp img{display:block;width:100%;height:100%;object-fit:contain}
