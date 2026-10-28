@@ -7,45 +7,46 @@
   <meta name="description" content="游目窗 · 浮世来信机：从一台会寄出世界邮票的机器，到能持续接信的创作流程。">
   <title>游目窗 · 浮世来信机｜演示与制作手记</title>
   <style>
-    :root { --paper:#f4efea; --paper2:#ebe4db; --ink:#1b365d; --muted:#53636a; --red:#7c2d12; --sea:#4a777a; --line:#c6bdb2; --gold:#b89252; }
+    /* Shared material colors from template/machine.css: casing, nameplate, map and readout. */
+    :root { --oxide:#b9473a; --oxide-deep:#82352f; --bezel:#243a49; --ivory:#fff1d4; --display:#092c31; --mint:#b6e6ca; --paper:#e9dfcb; --paper2:#e6dbc2; --ink:#263646; --muted:#536565; --red:#82352f; --sea:#9ab7c1; --line:#b7ad98; --gold:#bea37b; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body { margin:0; color:var(--ink); background:var(--paper); font-family:Georgia,"Noto Serif CJK SC","Songti SC",serif; line-height:1.85; }
     a { color:inherit; text-decoration-color:var(--red); text-underline-offset:4px; }
     a:focus-visible { outline:2px solid var(--red); outline-offset:4px; }
     .wrap { width:min(100% - 44px,960px); margin:auto; }
-    .top { background:var(--ink); color:var(--paper); border-bottom:4px solid var(--gold); }
+    .top { background:linear-gradient(105deg,#a43c37,var(--oxide) 40%,#8c332e); color:var(--ivory); border-bottom:4px solid var(--gold); }
     .top .wrap { display:flex; justify-content:space-between; align-items:center; gap:20px; min-height:66px; }
     .brand,.top nav,.kicker,.eyebrow,.stamp-label,.foot { font-family:ui-sans-serif,system-ui,-apple-system,"Noto Sans CJK SC",sans-serif; }
     .brand { font-size:13px; letter-spacing:.2em; font-weight:700; }
     nav { display:flex; flex-wrap:wrap; gap:19px; font-size:12px; }
     nav a { text-decoration:none; }
-    nav a:hover { color:#dfc995; }
-    .hero { padding:88px 0 94px; border-bottom:2px solid var(--ink); position:relative; overflow:hidden; background-image:linear-gradient(#1b365d0d 1px,transparent 1px),linear-gradient(90deg,#1b365d0d 1px,transparent 1px); background-size:36px 36px; }
-    .hero::after { content:""; position:absolute; width:410px; height:410px; border:1px solid #1b365d24; border-radius:50%; right:-180px; top:-150px; box-shadow:0 0 0 36px #f4efea,0 0 0 37px #1b365d24,0 0 0 76px #f4efea,0 0 0 77px #1b365d24; pointer-events:none; }
+    nav a:hover { color:#fff1d4; }
+    .hero { padding:88px 0 94px; border-bottom:2px solid var(--gold); position:relative; overflow:hidden; background-color:var(--paper); background-image:radial-gradient(ellipse at 23% 8%,#f2e9d180,transparent 65%),linear-gradient(#2636460a 1px,transparent 1px),linear-gradient(90deg,#2636460a 1px,transparent 1px); background-size:auto,84px 84px,84px 84px; }
+    .hero::after { content:""; position:absolute; width:410px; height:410px; border:1px solid #26364624; border-radius:50%; right:-180px; top:-150px; box-shadow:0 0 0 36px #e9dfcb,0 0 0 37px #26364624,0 0 0 76px #e9dfcb,0 0 0 77px #26364624; pointer-events:none; }
     .hero .wrap { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr) 300px; align-items:center; gap:38px; }
     .kicker { color:var(--red); font-size:11px; letter-spacing:.28em; font-weight:700; }
-    h1 { font-size:clamp(44px,7vw,76px); font-weight:600; letter-spacing:.045em; line-height:1.28; margin:27px 0; }
+    h1 { color:#273e55; font-size:clamp(44px,7vw,76px); font-weight:600; letter-spacing:.045em; line-height:1.28; margin:27px 0; }
     .lead { font-size:clamp(17px,2.2vw,21px); max-width:620px; line-height:2; }
     .hero-note { margin-top:38px; display:inline-block; padding:9px 14px; border-left:3px solid var(--red); background:var(--paper2); color:var(--ink); font-size:12px; font-family:ui-sans-serif,system-ui,sans-serif; letter-spacing:.07em; }
-    .machine { width:100%; padding:12px; border:4px solid #572613; border-radius:13px; background:linear-gradient(130deg,#a74732,#7c2d12 63%,#a34b37); box-shadow:8px 13px 0 #1b365d24, inset 0 0 0 2px #d58a6b; transform:rotate(2deg); }
-    .machine-head { padding:13px 8px; border:2px solid #b89252; background:#f1e6ca; color:var(--ink); text-align:center; font-size:16px; letter-spacing:.1em; font-weight:700; }
+    .machine { width:100%; padding:12px; border:4px solid #572613; border-radius:13px; background:linear-gradient(130deg,#a74732,#82352f 63%,#a34b37); box-shadow:8px 13px 0 #26364624, inset 0 0 0 2px #d58a6b; transform:rotate(2deg); }
+    .machine-head { padding:13px 8px; border:2px solid #bea37b; background:#f1e6ca; color:var(--ink); text-align:center; font-size:16px; letter-spacing:.1em; font-weight:700; }
     .machine-map { position:relative; height:155px; margin:11px 0; border:7px solid var(--ink); border-radius:4px; background:linear-gradient(90deg,#ffffff25 1px,transparent 1px),linear-gradient(#ffffff25 1px,transparent 1px),#85a9b1; background-size:32px 31px; box-shadow:inset 0 0 0 2px #e5e4d6; }
-    .machine-map::before { content:""; position:absolute; inset:22px 20px; border:2px solid #f4efea; border-radius:50%; transform:rotate(-16deg); opacity:.75; }
-    .machine-map::after { content:""; position:absolute; top:61px; left:105px; width:11px; height:11px; border-radius:50%; background:var(--red); border:3px solid var(--paper); box-shadow:0 0 0 5px #7c2d1280; }
+    .machine-map::before { content:""; position:absolute; inset:22px 20px; border:2px solid #e9dfcb; border-radius:50%; transform:rotate(-16deg); opacity:.75; }
+    .machine-map::after { content:""; position:absolute; top:61px; left:105px; width:11px; height:11px; border-radius:50%; background:var(--red); border:3px solid var(--paper); box-shadow:0 0 0 5px #b9473a80; }
     .machine-control { display:flex; gap:12px; align-items:center; padding:6px 3px; }
-    .machine-screen { flex:1; padding:15px 4px; background:#123a43; border:3px solid #b89252; color:#e4e3d4; text-align:center; font:600 10px ui-monospace,monospace; letter-spacing:.12em; }
+    .machine-screen { flex:1; padding:15px 4px; background:#123a43; border:3px solid #bea37b; color:#e4e3d4; text-align:center; font:600 10px ui-monospace,monospace; letter-spacing:.12em; }
     .machine-knob { width:34px; height:34px; flex:none; border:5px solid #7e5a2a; border-radius:50%; background:radial-gradient(circle at 33% 25%,#e5c986,#a67a3a); }
-    .machine-slot { width:58%; height:7px; margin:12px auto 6px; background:#183647; border:2px solid #b89252; border-radius:8px; }
+    .machine-slot { width:58%; height:7px; margin:12px auto 6px; background:#183647; border:2px solid #bea37b; border-radius:8px; }
     section { padding:80px 0; border-bottom:1px solid var(--line); }
     .eyebrow { display:inline-block; background:var(--red); color:var(--paper); padding:4px 10px; font-size:11px; letter-spacing:.16em; font-weight:700; }
     h2 { font-size:clamp(29px,4vw,42px); font-weight:500; line-height:1.45; margin:13px 0 27px; }
     .intro { max-width:690px; font-size:17px; }
     .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:42px; }
-    .card { background:#faf7f1; padding:30px 32px 35px; min-height:180px; }
+    .card { background:#f1e8d5; padding:30px 32px 35px; min-height:180px; }
     .card .num { color:var(--red); font:700 11px ui-sans-serif,system-ui,sans-serif; letter-spacing:.15em; }
     .card h3 { font-size:22px; font-weight:500; margin:12px 0 7px; }
-    .card p { margin:0; color:#40555a; font-size:14px; }
+    .card p { margin:0; color:#3e5b69; font-size:14px; }
     .timeline { margin:46px 0 0; border-top:1px solid var(--line); }
     .step { display:grid; grid-template-columns:115px minmax(0,1fr); border-bottom:1px solid var(--line); padding:22px 0; gap:18px; }
     .step b { color:var(--red); font:600 12px ui-sans-serif,system-ui,sans-serif; letter-spacing:.08em; padding-top:5px; }
@@ -53,13 +54,13 @@
     .rules { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
     .rule { border-top:3px solid var(--sea); padding-top:22px; }
     .rule h3 { font-size:19px; font-weight:500; margin:0 0 10px; }
-    .rule p { font-size:14px; margin:0; color:#40555a; }
-    .quote { margin:36px 0 0; padding:26px 32px; background:var(--ink); color:var(--paper); border-left:5px solid var(--gold); font-size:18px; }
+    .rule p { font-size:14px; margin:0; color:#3e5b69; }
+    .quote { margin:36px 0 0; padding:26px 32px; background:linear-gradient(100deg,#173b3f,#092c31 45%,#143a3e); color:var(--mint); border-left:5px solid var(--gold); font-size:18px; }
     .links { display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; }
-    .links a { display:inline-block; padding:11px 16px; border:1px solid var(--ink); font:600 12px ui-sans-serif,system-ui,sans-serif; text-decoration:none; }
-    .links a:hover { background:var(--ink); color:var(--paper); }
+    .links a { display:inline-block; padding:11px 16px; border:1px solid var(--red); color:var(--red); font:600 12px ui-sans-serif,system-ui,sans-serif; text-decoration:none; }
+    .links a:hover { background:var(--oxide-deep); color:var(--ivory); }
     .disclosure { color:var(--muted); font-size:14px; max-width:740px; }
-    footer { padding:27px 0 42px; background:var(--ink); border-top:5px solid var(--gold); }
+    footer { padding:27px 0 42px; background:var(--oxide-deep); border-top:5px solid var(--gold); }
     .foot { display:flex; justify-content:space-between; gap:20px; color:var(--paper); font-size:11px; letter-spacing:.06em; }
     @media(max-width:800px) { .hero .wrap { grid-template-columns:1fr; } .machine { width:min(300px,100%); transform:none; } }
     @media(max-width:650px) { .top .wrap { align-items:flex-start; flex-direction:column; padding:17px 0; gap:6px; } .hero { padding:65px 0 72px; } section { padding:62px 0; } .grid,.rules { grid-template-columns:1fr; } .card { min-height:unset; } .step { grid-template-columns:75px 1fr; gap:12px; } .foot { flex-direction:column; gap:5px; } }
@@ -68,17 +69,17 @@
     /* The actual project film replaces the previous decorative machine mockup */
     .hero .wrap { grid-template-columns:minmax(0,.9fr) minmax(0,1.35fr); max-width:1160px; }
     .hero { padding:70px 0 75px; }
-    .hero h1 { font-size:clamp(43px,5.3vw,67px); }
+    .hero h1 { color:#273e55; font-size:clamp(43px,5.3vw,67px); }
     .hero-video { min-width:0; }
-    .film-shell { background:#102d40; border:6px solid var(--ink); box-shadow:10px 12px 0 #1b365d1c,0 0 0 1px #b89252; }
-    .film-shell video { display:block; width:100%; aspect-ratio:16/9; height:auto; object-fit:contain; background:#102d40; }
-    .film-meta { display:flex; justify-content:space-between; gap:12px; padding:9px 12px; color:var(--paper); font:600 10px ui-monospace,monospace; letter-spacing:.10em; border-top:1px solid var(--gold); }
+    .film-shell { background:var(--display); border:6px solid var(--bezel); box-shadow:10px 12px 0 #2636461c,0 0 0 1px #bea37b; }
+    .film-shell video { display:block; width:100%; aspect-ratio:16/9; height:auto; object-fit:contain; background:#092c31; }
+    .film-meta { display:flex; justify-content:space-between; gap:12px; padding:9px 12px; color:var(--mint); font:600 10px ui-monospace,monospace; letter-spacing:.10em; border-top:1px solid var(--gold); }
     .film-description { display:flex; justify-content:space-between; gap:14px; margin-top:17px; color:var(--muted); font-size:12px; }
     .film-description strong { color:var(--red); }
-    #film { background:#ede5da; }
+    #film { background:linear-gradient(135deg,#b8cdd1,var(--sea)); }
     .film-chapters { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:35px; }
-    .film-chapter { appearance:none; border:0; padding:23px 14px; min-height:113px; background:#faf7f1; color:var(--ink); text-align:left; cursor:pointer; font:inherit; }
-    .film-chapter:hover,.film-chapter:focus-visible { background:#e8dbca; }
+    .film-chapter { appearance:none; border:0; padding:23px 14px; min-height:113px; background:#f1e8d5; color:var(--ink); text-align:left; cursor:pointer; font:inherit; }
+    .film-chapter:hover,.film-chapter:focus-visible { background:#e6dbc2; }
     .film-chapter:focus-visible { outline:3px solid var(--red); outline-offset:-3px; }
     .film-chapter time { display:block; font:700 11px ui-monospace,monospace; letter-spacing:.12em; color:var(--red); }
     .film-chapter span { display:block; margin-top:12px; font-size:15px; line-height:1.5; font-weight:600; }
@@ -117,7 +118,7 @@
     <section id="idea"><div class="wrap"><div class="eyebrow">02 / THE IDEA</div><h2>让一封信有抵达的过程</h2><p class="intro">我们想要的不是滚动的信息列表。地图负责发现，机器负责出票，邮票把地点留在手里。最新一封抵达时先等着，收信人亲自点下「入藏」，才把它放进自己的藏信册。</p><div class="grid"><div class="card"><div class="num">DISCOVER</div><h3>地图红点</h3><p>正式来信先核实真实地点；公开样例的地图点位为示意。屏幕显示地点全名，印刷区使用准确短名。</p></div><div class="card"><div class="num">RELEASE</div><h3>出票与翻面</h3><p>机械动作、翻纸和逐段出现的短笺组成阅读节奏；声音与按钮动作一起设计。</p></div><div class="card"><div class="num">MAKE</div><h3>无字画芯</h3><p>照片转绘或自主采风先得到一幅插画，再由固定版式加字、编号和透明齿孔。</p></div><div class="card"><div class="num">KEEP</div><h3>自己决定入藏</h3><p>地图显示有效来信；藏信按新到旧排列。最新一封的入藏权交给收信人。</p></div></div></div></section>
     <section id="journey"><div class="wrap"><div class="eyebrow">03 / THE JOURNEY</div><h2>从手作机器，到能反复寄信</h2><div class="timeline"><div class="step"><b>构思</b><p>确定红点、出票、翻面和手动入藏，把邮票当作故事的入口。</p></div><div class="step"><b>机器</b><p>反复校对机身布局与手机阅读；为机械声、纸声、钢笔声和字句安排同一时间轴。</p></div><div class="step"><b>制票</b><p>确立「无字画芯 → 固定母版」：正反面各 736 × 1040 RGBA，共用齿孔 Alpha。</p></div><div class="step"><b>接信</b><p>保留旧信，用受限的数据通道加入新信；发布后仍到真实网页检查地图、出票、翻面与撤回。</p></div><div class="step"><b>持续</b><p>定时任务启动采风与制作。每次都核对来源、图片、索引和网页，验收后才说新信到了。</p></div></div></div></section>
     <section id="lessons"><div class="wrap"><div class="eyebrow">04 / THE LESSONS</div><h2>几条刻进流程里的教训</h2><div class="rules"><div class="rule"><h3>画芯不写字</h3><p>整枚交给图像模型会带来���码与漂移。字和齿孔留给可重复的排版程序。</p></div><div class="rule"><h3>发布不等于可见</h3><p>后台有编号还不够。浏览器要取得完整图片和数据，真实页面也要能出票与翻面。</p></div><div class="rule"><h3>旧收藏不代表新选择</h3><p>浏览器旧标记曾让最新邮票提前入册。手动入藏须与当前信件绑定，撤回后重新计算。</p></div></div><p class="quote">一枚新邮票的完成条件，是收信人真的能打开它。</p></div></section>
-    <section id="share"><div class="wrap"><div class="eyebrow">05 / START HERE</div><h2>带走这台机器，寄出自己的信</h2><p class="intro">公开包提供可部署机器、三枚历史样例、完整制票 Skill 和六份提示词。先试玩，再按使用说明替换自己的内容；需要自动投递时，再看进阶接入。</p><p><a href="template/index.html" style="display:inline-block;padding:12px 20px;background:#7c2d12;color:#fff8ec;text-decoration:none;font:700 13px system-ui;border-radius:4px">亲手试玩公开来信机 →</a></p><p>灵感感谢池又雨（Yinglianchun）；制票方法学习并改写自 cakeni、Yan Liu、FANTASY／梵想美学的公开 Skill。作者、原项目、改写和素材使用范围统一见「灵感与致谢」。</p><div class="links"><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/template/USAGE.md">部署与使用</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md">制票 Skill</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md">完整提示词</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/灵感与致谢.md">灵感与致谢</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/踩坑复盘.md">踩坑指南</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/自动投递与跨设备接入.md">自动投递（进阶）</a></div></div></section>
+    <section id="share"><div class="wrap"><div class="eyebrow">05 / START HERE</div><h2>带走这台机器，寄出自己的信</h2><p class="intro">公开包提供可部署机器、三枚历史样例、完整制票 Skill 和六份提示词。先试玩，再按使用说明替换自己的内容；需要自动投递时，再看进阶接入。</p><p><a href="template/index.html" style="display:inline-block;padding:12px 20px;background:#82352f;color:#fff1d4;text-decoration:none;font:700 13px system-ui;border-radius:4px">亲手试玩公开来信机 →</a></p><p>灵感感谢池又雨（Yinglianchun）；制票方法学习并改写自 cakeni、Yan Liu、FANTASY／梵想美学的公开 Skill。作者、原项目、改写和素材使用范围统一见「灵感与致谢」。</p><div class="links"><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/template/USAGE.md">部署与使用</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md">制票 Skill</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md">完整提示词</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/灵感与致谢.md">灵感与致谢</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/踩坑复盘.md">踩坑指南</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/自动投递与跨设备接入.md">自动投递（进阶）</a></div></div></section>
   </main>
   <script>
     (() => {
