@@ -50,7 +50,7 @@
 
 ## 制作邮票
 
-读[制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)，按以下顺序制作：
+给照片或地点后，Skill 默认一次执行到完整的正反面 PNG；以下四步由小机连续完成，不需要你另发套版指令。读[制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)，按以下顺序制作：
 
 1. **素材与事实：**照片模式实际读取源照片；自主模式核实地点、资料 URL 和主题。完整地名、来源、核查日期、未知项与艺术演绎分别记录，用户提供不等于用户摄影。
 2. **无字画芯：**用[完整提示词](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md)生成 624:723 插画，保留主体与构图；不让模型画文字、编号、邮戳、边框和齿孔。

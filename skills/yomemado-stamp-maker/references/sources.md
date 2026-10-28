@@ -6,7 +6,7 @@
 
 | 创作者与原项目 | 参考的方向 | 游目窗的改写与取舍 |
 | --- | --- | --- |
-| **cakeni** · [Ukiyoe Picture Skill](https://github.com/cakeni/ukiyoe-picture-skill) · [原 Skill v1.2](https://github.com/cakeni/ukiyoe-picture-skill/blob/main/Ukiyoe_Picture_Skill_v1.2.md) | 浮世绘／木版印刷的线条、克制色块、纸纤维，以及参考照片主体身份与构图的保持 | 改为只生成无字画芯；不采用上游允许的图中文字、题签和框景装饰；文字、编号、框纸、齿孔交给固定套版程序 |
+| **cakeni** · [Ukiyoe Picture Skill](https://github.com/cakeni/ukiyoe-picture-skill) · [原 Skill v1.2](https://github.com/cakeni/ukiyoe-picture-skill/blob/main/Ukiyoe_Picture_Skill_v1.2.md) | 浮世绘／木版印刷的线条、克制色块、纸纤维，以及参考照片主体身份与构图的保持 | 图像子步骤改为只生成无字画芯，再由 Skill 自动套版交付完整双面邮票；不采用上游允许的图中文字、题签和框景装饰；文字、编号、框纸、齿孔交给固定套版程序 |
 | **Yan Liu / yanliudesign** · [Mono Color Skill](https://github.com/yanliudesign/mono-color-skill) · [原 Skill](https://github.com/yanliudesign/mono-color-skill/blob/main/SKILL.md) | 油墨、套印、纸面、留白和版式层级的受控表达 | 作为印刷质感与视觉组织的补充参考；不强制游目窗只用单墨／双色，也不套用其海报构图和留白比例 |
 | **FANTASY／梵想美学** · [Photo Revival](https://github.com/dacnay816y62-hub/photo-revival) · [原 Skill](https://github.com/dacnay816y62-hub/photo-revival/blob/main/SKILL.md) | 从日常照片提取可辨认主体，再转译为有纸感、手作感的插画 | 保留照片与画风职责分离；不采用其“小幅插画＋大面积空白纸”布局，游目窗画芯需要完整适配 624:723 槽位 |
 
@@ -15,7 +15,7 @@
 ## 游目窗后来增加的约束
 
 - 照片转绘、自主采风两种入口共用同一套生产链，事实与艺术演绎分开记录。
-- 画芯只出无字插画；624×723 画芯、736×1040 双面 RGBA、固定母版程序负责文字和透明齿孔。
+- Skill 对外直接交付完整邮票；内部先做 624×723 无字画芯，再由固定母版程序生成文字、透明齿孔与 736×1040 双面 RGBA 成品。
 - 固定字样与动态字段分层；底部地名恰好两行，长名先核实准确简称，不悄悄缩字或改框。
 - 地点全称用于资料、地图和藏信，印刷简称不覆盖事实主档；未知坐标不编造。
 - 正反面继承同一 Alpha；同时验收实际 PNG、屏幕显示和下载结果。
