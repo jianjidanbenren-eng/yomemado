@@ -42,5 +42,11 @@
       "bytes": 18329
     }
   },
-  "mechanismCodeSha256": "1f657947d36b11ddd34281dfb69ec71c29b6059cef655b25e0f9c11eb4c1ecf5"
+  "mechanismCodeSha256": "1f657947d36b11ddd34281dfb69ec71c29b6059cef655b25e0f9c11eb4c1ecf5",
+  "provenance": {
+    "originalSourceStatus": "Not recovered",
+    "userRecollection": "User tentatively recalls that the samples were available for personal use; original source files or terms have not been located.",
+    "recordedOn": "2026-10-28",
+    "publicRedistributionPermission": "Not verified from the available records or this recollection."
+  }
 }

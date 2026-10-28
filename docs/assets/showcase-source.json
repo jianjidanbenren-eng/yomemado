@@ -9,5 +9,15 @@
   "videoCodec": "h264",
   "audioCodec": "aac",
   "processing": "None. User-provided original file copied byte-for-byte, including its existing audio track.",
-  "licenseScope": "Video and soundtrack are separate from the MIT code license."
+  "licenseScope": "Video and soundtrack are separate from the MIT code license.",
+  "soundtrack": {
+    "artist": "AKMU（乐童音乐家）",
+    "title": "작별인사 (Farewell)",
+    "album": "SAILING",
+    "officialYouTubeChannel": "https://www.youtube.com/@AKMU",
+    "officialYouTubeAudio": "https://www.youtube.com/watch?v=5yIzrpxCFJY",
+    "linkType": "Official audio, provided to YouTube by YG Entertainment; not labeled as a music video.",
+    "checkedOn": "2026-10-28",
+    "publicVideoUsePermission": "Not verified; the listening link records the source, not a license."
+  }
 }
