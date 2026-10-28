@@ -39,7 +39,15 @@ python scripts/check_stamp.py output/001-front.png output/001-back.png
 
 ## 样例与输出边界
 
-随包包含三枚历史制票测试的画芯与数据：布达拉宫、普莫雍错、苏州留园。原始照片未随包分发；画芯来自旧测试候选，不是本次重新从照片生成的结果。`examples/provenance.json` 记录来源与未核实项。六场景的历史检查表不代表随包有六套成品。
+随包包含布达拉宫、普莫雍错、苏州留园三套完整示例：每套都有画芯、JSON 数据、正面 PNG 和背面 PNG，均放在 `examples/`，下载本 Skill 即可查看。以下双面成品与公开机器模板使用的文件完全相同；本次只补齐随包示例，没有重新生图。原始照片未随包分发，画芯来自历史测试候选。
+
+| 示例 | 完整正面 | 完整背面 | 制作输入 |
+| --- | --- | --- | --- |
+| 001 · 布达拉宫 | ![布达拉宫邮票正面](examples/001-front.png) | ![布达拉宫邮票背面](examples/001-back.png) | [画芯](examples/001-art.png) · [数据](examples/001.json) |
+| 002 · 普莫雍错 | ![普莫雍错邮票正面](examples/002-front.png) | ![普莫雍错邮票背面](examples/002-back.png) | [画芯](examples/002-art.png) · [数据](examples/002.json) |
+| 003 · 苏州留园 | ![留园邮票正面](examples/003-front.png) | ![留园邮票背面](examples/003-back.png) | [画芯](examples/003-art.png) · [数据](examples/003.json) |
+
+[来源记录](examples/provenance.json) 列出每套文件与未核实项。六场景的历史检查表不代表随包有六套成品；羊湖、里斯本阿尔法玛、莫干山这三组尚待补图。
 
 `assets/master.png` 是清除私人图心和动态字段后的共享框纸/Alpha 母版；`assets/style-reference.png` 是公开画芯风格参考。程序接受已准备好的画芯，不调用模型、查询网络或投递网页。
 

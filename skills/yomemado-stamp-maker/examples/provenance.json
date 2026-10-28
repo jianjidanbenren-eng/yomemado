@@ -5,21 +5,42 @@
       "place": "Potala Palace",
       "source": "W45 photo-based historical illustration; W47 fixed-master tests",
       "directNewAIArtworkGenerationVerified": false,
-      "coordinatesVerified": false
+      "coordinatesVerified": false,
+      "files": {
+        "art": "001-art.png",
+        "data": "001.json",
+        "front": "001-front.png",
+        "back": "001-back.png"
+      },
+      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28"
     },
     {
       "id": "002",
       "place": "Pumo Yumco",
       "source": "W45 photo-based historical illustration; W47 fixed-master tests",
       "directNewAIArtworkGenerationVerified": false,
-      "coordinatesVerified": false
+      "coordinatesVerified": false,
+      "files": {
+        "art": "002-art.png",
+        "data": "002.json",
+        "front": "002-front.png",
+        "back": "002-back.png"
+      },
+      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28"
     },
     {
       "id": "003",
       "place": "The Lingering Garden",
       "source": "W45 photo-based historical illustration; W47 fixed-master tests",
       "directNewAIArtworkGenerationVerified": false,
-      "coordinatesVerified": false
+      "coordinatesVerified": false,
+      "files": {
+        "art": "003-art.png",
+        "data": "003.json",
+        "front": "003-front.png",
+        "back": "003-back.png"
+      },
+      "finishedPairSource": "Byte-identical copies of the approved public template stamp pair in template/assets/stamps; included with the standalone Skill on 2026-10-28"
     }
   ],
   "historicalTestCount": 6,
@@ -29,7 +50,7 @@
     "葡萄牙里斯本・阿尔法玛老城区｜窗与海",
     "莫干山民宿｜山景长窗与木桌"
   ],
-  "note": "The public package still distributes three historical prepared-artwork examples. Other three locations are named, but their images and complete stamp pairs are not yet included.",
+  "note": "The public Skill package contains three historical prepared-artwork examples, each with artwork, JSON data and a complete front/back PNG pair. Finished pairs are byte-identical to the public machine template. The other three locations are named, but their images and complete stamp pairs are not yet included. No new AI artwork generation was performed when adding the paired outputs.",
   "sceneLocations": [
     {
       "testScene": 1,
