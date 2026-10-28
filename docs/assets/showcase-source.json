@@ -19,5 +19,18 @@
     "linkType": "Official audio, provided to YouTube by YG Entertainment; not labeled as a music video.",
     "checkedOn": "2026-10-28",
     "publicVideoUsePermission": "Not verified; the listening link records the source, not a license."
+  },
+  "poster": {
+    "file": "showcase-poster.webp",
+    "sourceTimeSeconds": 0,
+    "description": "Opening overview showing the full machine, archive and double-sided stamp; replaces the edge-on flip frame.",
+    "sha256": "7f97238740843f0081e09733c50d6aa5704beb126b53c8907473c8a5ba695348"
+  },
+  "githubEmbedding": {
+    "url": "https://github.com/user-attachments/assets/f760c3f3-47d6-4983-9f9e-7234352e87c5",
+    "sourceFile": "yomemado-showcase-original.mp4",
+    "sourceSha256": "1715a9e27976088844e80579098cc87a7a1f8a5f97937c2034147997522357a4",
+    "uploadedOn": "2026-10-28",
+    "processing": "Original file uploaded unchanged to GitHub for the README player."
   }
 }
