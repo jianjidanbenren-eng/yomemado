@@ -113,3 +113,16 @@ test('browsers without Web Audio preload media and retain original sample playba
   h.audio.play('tap');
   assert.equal(h.media.find(a => a.src.endsWith('/coordinate.mp3')).played, true);
 });
+
+test('visible writing callbacks keep the W32 timeline with sound off or muted mid-passage', async () => {
+  for (const muteBefore of [true, false]) {
+    const h = harness(), calls = []; let done = false;
+    if (muteBefore) h.audio.setEnabled(false);
+    h.audio.startWriting({onPassage: (index, duration) => calls.push([index, duration]), onComplete: () => { done = true; }});
+    await h.advance(770); assert.deepEqual(calls, [[0, 2180]]);
+    h.audio.setEnabled(false);
+    await h.advance(3380); assert.deepEqual(calls, [[0, 2180], [1, 2060]]);
+    await h.advance(5440); assert.equal(done, true);
+    assert.equal(h.buffers.length, muteBefore ? 0 : 1);
+  }
+});

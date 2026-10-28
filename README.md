@@ -46,7 +46,9 @@ python skills/yomemado-stamp-maker/scripts/check_stamp.py output/001-front.png o
 
 ## 收信和藏信规则
 
-地图显示当前来信。新信加入后，之前的有效旧信自动进入藏信册并显示 READ / 已读；最新一封等待使用者点入藏。藏信按编号倒序排列，下载使用网页中同一对 PNG。
+地图显示全部有效正式来信。当前三封样例对应三个点，藏信先有 001、002 两枚旧信，均显示 READ / 已读；最新的 003 即使读过，也要亲手点「入藏」才成为第三枚。加入第四封后，旧三封自动入藏且已读，最新第四封继续等待手动入藏。藏信按编号倒序排列，测试信不参与正式计数。
+
+翻至背面后，正文按原 W32 的两段节奏逐字写出，最后出现落款；静音仍有写字动画。完整规则与保留项见 [与原机的行为对照](docs/行为对照.md)。存图始终下载完整的原 PNG，不受动画进度影响。
 
 收藏、最新来信的阅读状态保存在本浏览器，跨设备不自动同步。自动采风、AI 制票、定时投递和跨设备个人账户同步属于后续可接的后端能力，模板不会连接作者的私人服务。
 
@@ -62,7 +64,7 @@ python skills/yomemado-stamp-maker/scripts/check_stamp.py output/001-front.png o
 ```bash
 python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
-node --test tests/archive-state.test.cjs
+node --test tests/*.test.cjs
 ```
 
 本地体验：`cd template` 后运行 `python -m http.server 8000`，打开 http://localhost:8000。请用本地服务器检查 ZIP 下载，避免直接双击 HTML 的文件读取限制。

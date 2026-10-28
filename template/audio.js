@@ -193,21 +193,22 @@
         activePen = source; window.yomemadoDuckMusic?.(ms + 180, .10);
       } catch (err) { console.warn('Pen effect unavailable', err); }
     }
-    function startWriting() {
-      stopWriting(); if (!sfxOn) return;
-      preparePen(); // Resume synchronously inside the flip gesture, including on mobile.
+    function startWriting({passageCount = 2, onPassage = () => {}, onComplete = () => {}} = {}) {
+      stopWriting();
+      if (sfxOn) preparePen(); // Resume synchronously inside the flip gesture, including on mobile.
       const token = writeToken;
       function passage(index) {
-        if (!sfxOn || token !== writeToken) return;
-        const duration = WRITER_PASSAGES_MS[index]; penForPassage(token, duration);
-        later(() => { if (token !== writeToken) return; stopPen(); if (index + 1 < WRITER_PASSAGES_MS.length) later(() => passage(index + 1), WRITER_PAUSE_MS); }, duration);
+        if (token !== writeToken) return;
+        const duration = WRITER_PASSAGES_MS[Math.min(index, WRITER_PASSAGES_MS.length - 1)];
+        onPassage(index, duration); penForPassage(token, duration);
+        later(() => { if (token !== writeToken) return; stopPen(); if (index + 1 < passageCount) later(() => passage(index + 1), WRITER_PAUSE_MS); else onComplete(); }, duration);
       }
       later(() => passage(0), WRITER_FIRST_DELAY);
     }
     function setEnabled(on) {
       sfxOn = Boolean(on); soundGeneration++;
       if (!sfxOn) {
-        stopWriting();
+        stopPen(); // Muting stops sound; the visible writing continues on the same timeline.
         for (const [kind, source] of activeSamples) if (kind !== 'switch') { try { source.stop(); } catch (_) {} }
         for (const a of [...Object.values(samples), ...transient]) if (a !== samples.switch) { try { if (a.pause) a.pause(); else a.stop(); } catch (_) {} }
         transient.clear();
