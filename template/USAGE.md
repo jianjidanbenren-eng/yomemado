@@ -1,42 +1,74 @@
-# 换成自己的游目窗
+# 部署和使用游目窗
 
-1. 部署后编辑 config.js，修改 siteTitle、receiverName、fontFamily、storageKey。多个作品使用不同 storageKey。
-2. 编辑 letters.js。每封信需要三位数字 id、日期、完整地点与地区、title、paragraphs、mapX/mapY 和正反面 PNG 路径。编号不可重复。mapX/mapY 范围 0–100；默认样例是地区示意，latitude/longitude 未核实所以为 null。
-3. 把新的 736×1040 RGBA 正反面放入 assets/stamps/，将 frontImage/backImage 指向实际文件。背面纸面使用同一 PNG，正文与落款由 letters.js 驱动逐字显示；修改来信时应同步重新制票，让网页文字与下载成品一致。
-4. 修改外壳时编辑 custom.css，可换颜色、纹理、尺寸；保留 index.html 的交互元素 ID。图片、机壳和文字可以按自己的喜好替换。
-5. 默认字体是本机宋体/宋体类衬线字体。修改 fontFamily 即可更换；模板不提供字体二进制。示例背面 PNG 已用思源宋体类字型绘制，改网页字体不会自动重绘既有 PNG；需要用制票脚本重新导出。
-6. 背景音乐可在 musicUrl 填入同站 assets/music/your-track.mp3，并填写 musicCredit、musicLink。选择自己有相应使用权的音乐，或保持为空。音乐由访客主动点击黄铜旋钮播放，可切音量与关闭。原曲署名参考：AKMU（乐童音乐家）《Farewell》，专辑 SAILING。
-7. 新增更高编号的来信后，之前的有效旧信自动入藏并显示已读；最新一封由访客手动入藏。收藏只保存在当前浏览器。删除/撤回记录后，其自动归档状态随当前列表重算。
+这份说明是公开机器的使用入口。部署后即可使用三枚独立历史样例；制作新邮票、接后端或排错时，再打开相应专题。
 
-## 本地预览
+[部署与预览](#部署与预览) · [替换内容](#替换内容) · [收信与阅读](#收信与阅读) · [制作邮票](#制作邮票) · [音效与外观](#音效与外观) · [进阶与排错](#进阶与排错)
 
-在 template 目录运行 `python -m http.server 8000`，打开 http://localhost:8000。用本地服务器检查图片下载；直接双击 HTML 时，浏览器可能禁止读取 PNG 来打 ZIP。
+## 部署与预览
 
-## 制票入口
+| 平台 | 设置 |
+| --- | --- |
+| Vercel | 从仓库部署，Root Directory 选 `template`，无需 Build Command 或环境变量 |
+| Netlify | 仓库根目录 `netlify.toml` 已配置 `base = "template"`、`publish = "."` |
+| GitHub Pages | 项目手记在根目录，公开机器位于 `/template/` |
+| 本地 | 在本目录运行 `python -m http.server 8000`，打开 http://localhost:8000 |
 
-在仓库根目录阅读 [制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)、[规则](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/rules.md) 和[完整提示词（含原三份画芯及三份工作流）](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md)。先生成无字画芯，再由 Python/Pillow 固定套版；并非给网页配置音乐才能制票。
+机器是纯静态 HTML/CSS/JS，无后端、API 密钥或 npm 依赖。用本地服务器检查图片下载，直接双击 HTML 时浏览器可能禁止读取 PNG 来打 ZIP。部署后实际走一次地图、出票、取信、翻面、下载、入藏和刷新。
 
-## 自动投递与跨设备接入
+## 替换内容
 
-请将[接入说明](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/自动投递与跨设备接入.md)交给接手的小机。按配置单接部署者自己的存储、受保护写入、在线读桥和云定时任务；先手动投递一封并验收，再设日程。静态模板没有只需填地址就生效的在线读信开关。
+| 想改什么 | 修改哪里 | 注意 |
+| --- | --- | --- |
+| 名称、收信人 | `config.js` 的 `siteTitle`、`receiverName` | 改网页称呼不重绘既有 PNG |
+| 字体 | `config.js` 的 `fontFamily` | 默认系统宋体／宋体类字体，可换；包内不含系统字体文件 |
+| 背景音乐 | `musicUrl`、`musicCredit`、`musicLink` | 可设为 `assets/music/your-track.mp3` 或留空；选择有相应使用权的音乐 |
+| 独立作品的本地记录 | `storageKey` | 不同作品使用不同值，不清空现有使用者记录 |
+| 来信和地点 | `letters.js` | 三位数字 `id` 不重复；填写 `date`、`title`、`place`、`region`、两段 `paragraphs`、`signature`、`mapX/mapY`、正反图片路径 |
+| 邮票图片 | `assets/stamps/` | 正反面均 736×1040 RGBA，`frontImage/backImage` 指向实际文件 |
+| 外壳与颜色 | `custom.css` | 可换纹理、配色和尺寸；保留交互元素 ID，修改后重新检查窄屏 |
 
-各设备读到同一批来信，与最新信的个人阅读/收藏跨设备同步不同。前者复用在线发布索引，后者另需登录与状态数据库；不接后者时继续按浏览器保存，不影响旧信自动入藏及已读规则。文档给出了权限边界、重复投递与回滚、桌面和手机验收，以及可直接复制的接手提示词。
+地图坐标 `mapX/mapY` 范围为 0–100；经纬度未核实就填 `null`，不编造。已有示例为地区示意，具体摄影位置、留园房间及精确坐标未独立核实。
 
+背面逐字正文来自 `letters.js`，PNG 仍是完整纸面和下载成品。替换文字或字体后需要重新制票，让网页与下载内容一致。覆盖同编号图片时更新资源路径或版本参数，避免继承旧内容的手动收藏标记。
 
-### 原版交互音效
+## 收信与阅读
 
-模板沿用原机 W32 音效：V3 黄铜按键、电报码、齿轮、纸张及到达铃，配合原版地图、翻纸、藏信、盖章、开关采样。翻至背面后，正文与原钢笔采样按 770 毫秒延迟、2180 / 2060 毫秒两段和 430 毫秒间隔一起推进，写完再出现落款；翻回、合上或换信会取消本次书写。关闭机音只停止声音，文字仍会写完。
+| 场景／动作 | 机器行为 |
+| --- | --- |
+| 三封正式样例 | 地图三点、RECEIVED 03；藏信先有 001、002 两枚，均 READ / 已读 |
+| 只读最新 003 | 可记为读过，藏信仍只有两枚；阅读与收藏分开 |
+| 点击入藏 003 | 藏信变三枚，均已读；本浏览器刷新后保留 |
+| 004 抵达 | 旧 001–003 自动入藏且已读；最新 004 继续等待手动入藏 |
+| 七封，最新未手动入藏 | 地图七点，藏信六枚旧信已读 |
+| 顺序、测试与撤回 | 藏信编号倒序；`testOnly: true` 不参与正式计数；撤回后按有效列表重算 |
+| 同编号换内容 | 收藏标记绑定编号、日期、地点、标题及图片路径；旧 `collected: true` 不替新内容入藏 |
+| 翻至背面 | 等待 770ms，第一段逐字写 2180ms，间隔 430ms，第二段 2060ms，最后出现落款 |
+| 静音／中断 | 静音仍写字；翻回、合上、换信取消当前书写和旧回调 |
+| 存图 | ZIP 始终下载同一对完整 PNG，正在写到哪里都不会保存半成品 |
 
-机音开关控制整套交互声；黄色旋钮控制另行配置的背景音乐。音效可替换 `template/assets/sfx/` 中的对应文件（仅部署模板时路径为 `assets/sfx/`），也可在 `config.js` 设置 `sfxBasePath`。原版采样校验与来源记录见该目录的 `sources.json`；背景歌曲不随模板提供。
+已手动收藏最新信的浏览器显示三枚是正常后续状态，不强制退回两枚。个人阅读和收藏记录保存在本浏览器，跨设备不自动同步；藏信 READ 是约定的展示规则，不是服务器记录的真实阅读证明。
 
-交互采样在页面打开后提前准备：短点击声使用已解码缓存，翻纸保留原播放器的 1.38 倍速与音高保持设置。首次触摸会唤醒音频通道；钢笔声的 770 毫秒等待与两段时序保持原版。
+## 制作邮票
 
-## 三个地图点为什么先有两枚藏信
+读[制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)，按以下顺序制作：
 
-这是与原机一致的默认规则：001、002 是旧信，自动入藏且均为 READ / 已读；003 是最新一封，先留在地图等待亲手取信、阅读和入藏。只翻阅 003 不会增加藏信数量；点击「入藏」后才变成三枚。加入 004 后，旧三封自动入藏并已读，004 再等待手动入藏。已经收藏过 003 的浏览器刷新后仍会保留三枚，不会为了展示初始状态而清空记录。
+1. **素材与事实：**照片模式实际读取源照片；自主模式核实地点、资料 URL 和主题。完整地名、来源、核查日期、未知项与艺术演绎分别记录，用户提供不等于用户摄影。
+2. **无字画芯：**用[完整提示词](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md)生成 624:723 插画，保留主体与构图；不让模型画文字、编号、邮戳、边框和齿孔。
+3. **固定套版：**用 Skill 的母版、字段示例和脚本输出双面 736×1040 RGBA；底部准确短名固定两行，地图和藏信保留全名。测试用 TEST，不占正式编号。CJK 字体按 `--font` 指向自己的本地文件。
+4. **成品验收：**运行 Skill 内唯一的 `scripts/check_stamp.py`，再在白、黑、棋盘格底看边缘、字形、正文和落款；核对实际下载。保存画芯、JSON、正反面、来源和结果。
 
-`testOnly: true` 的测试信不参与正式地图、计数及最新信判断。详细对照见[行为说明](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/行为对照.md)。
+程序检查不代替事实与视觉检查；旧画芯跑通套版不代表本轮新生图成功。具体命令、规则和六份完整提示词统一放在 Skill，不在这里维护第二套。
 
-## 来源与排错
+## 音效与外观
 
-制票方法参考的作者、原项目及我们的修改见[灵感与致谢](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/灵感与致谢.md)。遇到图像、字形、透明、音效、书写、下载或同步问题，请按[踩坑指南](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/踩坑复盘.md)定位对应环节，保留已确认的布局和声音。
+机音沿用 W32：八个采样、V3 出票、翻纸、两段钢笔声、入藏和藏信开合。机音开关控制交互声，黄色旋钮控制另配的背景音乐，两者独立。音乐由访客主动点击播放，五档音量可关闭。
+
+更换机音可替换 `assets/sfx/` 的对应文件，或设置 `config.js` 的 `sfxBasePath`；原采样哈希与参数见 `assets/sfx/sources.json`。短声提前加载解码，首次手势唤醒音频通道；翻纸保留 1.38 倍速与音高保持，钢笔仍按原时序等待。浏览器/窄屏检查不代替手机实际听感验收。
+
+现有主机以 W38/W41 为布局基准。介绍页的配色为氧化铁红 `#7C2D12`、浮世靛蓝 `#1B365D`、蓝晒海青 `#4A777A`、和纸米白 `#F4EFEA`、黄铜 `#B89252`；可作自定义参考，修改外观后检查阅读与操作区。
+
+## 进阶与排错
+
+- 自动投递、在线读桥及可选个人状态同步：[接入说明](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/自动投递与跨设备接入.md)。默认模板没有后端，不连接作者的私人信箱或任务。
+- 图像、字体、透明、声音、写字、下载或同步问题：[二十项踩坑指南](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/踩坑复盘.md)。
+- 灵感作者、Skill 参考、图片、音乐、字体与视频使用范围：[灵感与致谢](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/灵感与致谢.md)。
