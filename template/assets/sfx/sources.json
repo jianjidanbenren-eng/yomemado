@@ -1,0 +1,46 @@
+{
+  "source": "Approved original interaction samples carried by W32 and retained in W51. Background music excluded.",
+  "samples": {
+    "switch": {
+      "file": "switch.mp3",
+      "sha256": "96ff21df8ca39ee8d4170490d68b45d22f6a2a1adc80894cce2a8ff09d81fd43",
+      "bytes": 6312
+    },
+    "coordinate": {
+      "file": "coordinate.mp3",
+      "sha256": "febf9fdb848d33aa6dbb92edeadb028f3111dee55f2af1b54440d778039a577a",
+      "bytes": 15507
+    },
+    "stamp": {
+      "file": "stamp.mp3",
+      "sha256": "564f9e2892098e1d283db4d3ce06510093cac5c85d2c72fc7eb6f70b7e898ad5",
+      "bytes": 12163
+    },
+    "flip": {
+      "file": "flip.mp3",
+      "sha256": "1c04e41918b392a643c22d6c02ef34eeab0341c70d46b7d517078725b79d8ee4",
+      "bytes": 30929
+    },
+    "pen": {
+      "file": "pen.mp3",
+      "sha256": "3b577a91fac10f6debe1db0e25f5d9bb7820868d3a4c099b6c8f0e4e2533ee59",
+      "bytes": 41117
+    },
+    "archive_save": {
+      "file": "archive_save.mp3",
+      "sha256": "970d07a66a471c97b08210ac36ec4c737781c4bd2bc73e68e63f1a86ddb0c3fa",
+      "bytes": 32016
+    },
+    "archive_open": {
+      "file": "archive_open.mp3",
+      "sha256": "70777db7c50d6530f10c6f5ec173e45ddd9b0e158d555d850b9b8d3f0f647b37",
+      "bytes": 19897
+    },
+    "archive_close": {
+      "file": "archive_close.mp3",
+      "sha256": "79f3b65a5089ea41da643ebc5584a54f4a5c6bbb2f3ad385070a0bf11f44cccc",
+      "bytes": 18329
+    }
+  },
+  "mechanismCodeSha256": "1f657947d36b11ddd34281dfb69ec71c29b6059cef655b25e0f9c11eb4c1ecf5"
+}

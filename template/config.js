@@ -5,6 +5,7 @@ window.YOMEMADO_CONFIG = {
   storageKey: 'yomemado-public-letters-v1',
   initialCollectedIds: [],
   fontFamily: '"SimSun", "Songti SC", serif',
+  sfxBasePath: 'assets/sfx/',
   musicUrl: '',
   musicCredit: '原项目配乐参考：AKMU（乐童音乐家）《Farewell》 / SAILING',
   musicLink: 'https://music.apple.com/us/song/farewell/1480802556',
