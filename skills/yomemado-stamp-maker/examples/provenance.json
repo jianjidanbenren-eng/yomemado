@@ -25,9 +25,54 @@
   "historicalTestCount": 6,
   "includedVerifiedSamples": 3,
   "remainingScenes": [
-    "极地海面",
-    "开窗望海",
-    "长窗木桌"
+    "西藏山南・羊卓雍措（羊湖）",
+    "葡萄牙里斯本・阿尔法玛老城区｜窗与海",
+    "莫干山民宿｜山景长窗与木桌"
   ],
-  "note": "The six-scene checklist is not a claim that six finished stamp pairs are distributed."
+  "note": "The public package still distributes three historical prepared-artwork examples. Other three locations are named, but their images and complete stamp pairs are not yet included.",
+  "sceneLocations": [
+    {
+      "testScene": 1,
+      "scene": "宫殿与群山",
+      "placeZh": "西藏拉萨・布达拉宫",
+      "includedSampleId": "001",
+      "labelSource": "Historical W45 user-confirmed label"
+    },
+    {
+      "testScene": 2,
+      "scene": "蓝绿高山湖",
+      "placeZh": "西藏山南・羊卓雍措（羊湖）",
+      "includedSampleId": null,
+      "labelSource": "User confirmation on 2026-10-28"
+    },
+    {
+      "testScene": 3,
+      "scene": "冰雪湖面（旧清单曾泛称极地海面）",
+      "placeZh": "西藏山南・普莫雍错",
+      "includedSampleId": "002",
+      "labelSource": "Historical W45 TEST-B user-confirmed label; ice and snow lake scene"
+    },
+    {
+      "testScene": 4,
+      "scene": "窗与海",
+      "placeZh": "葡萄牙里斯本・阿尔法玛老城区",
+      "includedSampleId": null,
+      "labelSource": "User confirmation on 2026-10-28"
+    },
+    {
+      "testScene": 5,
+      "scene": "格窗光影",
+      "placeZh": "苏州・留园",
+      "includedSampleId": "003",
+      "labelSource": "Historical W45 user-confirmed label"
+    },
+    {
+      "testScene": 6,
+      "scene": "山景长窗民宿与木桌",
+      "placeZh": "莫干山民宿",
+      "includedSampleId": null,
+      "labelSource": "User confirmation on 2026-10-28"
+    }
+  ],
+  "sceneLabelNote": "The three remaining scene names are user-confirmed, not unknown. Six named scenes do not mean six distributed finished stamp pairs. Precise photo viewpoints, the specific guesthouse and coordinates are not independently verified. The blue-green Yamdrok lake scene and the existing snowy Pumo Yumco scene are separate."
 }
