@@ -54,12 +54,23 @@ class StampCheckerTests(unittest.TestCase):
 
 class ShowcaseAssetTests(unittest.TestCase):
     def test_real_video_is_checked_in(self):
-        path = ROOT / "assets" / "yomemado-showcase-silent.mp4"
+        path = ROOT / "assets" / "yomemado-showcase-original.mp4"
         self.assertTrue(path.is_file())
         self.assertGreater(path.stat().st_size, 100_000)
         with path.open("rb") as stream:
             header = stream.read(32)
         self.assertIn(b"ftyp", header)
+
+    def test_original_video_is_unmodified_and_retains_its_audio_track(self):
+        import hashlib
+        import json
+        source = json.loads((ROOT / "assets/showcase-source.json").read_text())
+        data = (ROOT / "assets" / source["file"]).read_bytes()
+        self.assertEqual(len(data), source["bytes"])
+        self.assertEqual(hashlib.sha256(data).hexdigest(), source["sha256"])
+        self.assertIn(b"vide", data)
+        self.assertIn(b"soun", data)
+        self.assertEqual((source["width"], source["height"], source["durationSeconds"]), (1920, 1080, 45))
 
     def test_webp_poster_is_checked_in(self):
         path = ROOT / "assets" / "showcase-poster.webp"
@@ -72,7 +83,7 @@ class ShowcaseAssetTests(unittest.TestCase):
         page = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('id="showcase-film"', page)
         self.assertIn('controls playsinline', page)
-        self.assertIn('assets/yomemado-showcase-silent.mp4', page)
+        self.assertIn('assets/yomemado-showcase-original.mp4', page)
         self.assertIn('assets/showcase-poster.webp', page)
         self.assertEqual(page.count('class="film-chapter"'), 5)
 

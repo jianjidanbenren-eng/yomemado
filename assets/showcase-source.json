@@ -1,0 +1,13 @@
+{
+  "sourceFilename": "游目窗_浮世绘杂志风演示视频.mp4",
+  "file": "yomemado-showcase-original.mp4",
+  "bytes": 7321980,
+  "sha256": "1715a9e27976088844e80579098cc87a7a1f8a5f97937c2034147997522357a4",
+  "durationSeconds": 45,
+  "width": 1920,
+  "height": 1080,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "processing": "None. User-provided original file copied byte-for-byte, including its existing audio track.",
+  "licenseScope": "Video and soundtrack are separate from the MIT code license."
+}

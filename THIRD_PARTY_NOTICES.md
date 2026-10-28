@@ -9,7 +9,8 @@
 | 新的示例正反面 | 从历史画芯和共享母版重新套版，统一公开编号和通用短笺；不代表新模型生图测试 |
 | 示例 PNG 字形 | 页面优先使用本机宋体；已导出的示例背面用 Noto Serif CJK SC 渲染：[上游](https://github.com/notofonts/noto-cjk)，字体不随包分发 |
 | 视频手写字体 | 白河「星光小熊猫体幼儿风 Beta 2.1」：[作者](https://github.com/cyberinkflow/StarPandaKidsFonts)、[条款](https://github.com/cyberinkflow/StarPandaKidsFonts/blob/main/LICENSE)；保留视频展示和署名，不包含字体二进制 |
-| 原项目配乐参考 | AKMU《Farewell》，专辑 SAILING；[官方收听](https://music.apple.com/us/song/farewell/1480802556)。未附原录音，使用者可配置有相应使用权的音乐 |
+| 原项目配乐参考 | AKMU《Farewell》，专辑 SAILING；[官方收听](https://music.apple.com/us/song/farewell/1480802556)。模板不单独附整首歌曲文件；用户提供的演示原片保留现有音轨，包含原项目配乐与机音。视频及音轨不随代码 MIT 许可开放重用；此署名不表示已取得歌曲公开使用授权 |
+| 项目演示原片 | 用户提供的「游目窗_浮世绘杂志风演示视频.mp4」，45 秒、1920×1080、H.264/AAC；原样复制，文件字节校验见 `assets/showcase-source.json` |
 | 原版交互声 | 保留原项目 W32 音效：原版 V3 出票合成程序及原机八个短采样（开关、地图、盖章、翻纸、钢笔、入藏、藏信开合）；采样逐字节提取，校验见 `template/assets/sfx/sources.json`。不含 AKMU 背景音乐；此记录说明迁移来源，不额外推定采样上游许可 |
 
 灵感致谢：池又雨分享的世界之窗与外部唤醒思路；[SameWindow](https://github.com/Yinglianchun/SameWindow) 提供方向参考，未直接使用其代码。插画风格讨论参考 [Ukiyoe Picture Skill](https://github.com/cakeni/ukiyoe-picture-skill)、[Mono Color Skill](https://github.com/yanliudesign/mono-color-skill)、[Photo Revival](https://github.com/dacnay816y62-hub/photo-revival)。

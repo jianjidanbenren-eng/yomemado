@@ -6,7 +6,7 @@
 
 [![游目窗项目视频封面](assets/showcase-poster.webp)](https://jianjidanbenren-eng.github.io/yomemado/#showcase)
 
-公开模板沿用原项目的机器外壳与交互，接入三枚历史 Skill 测试样例：西藏拉萨布达拉宫、西藏山南普莫雍错、苏州留园。样例与私人信箱独立，来源和未核实项见 [provenance.json](skills/yomemado-stamp-maker/examples/provenance.json)。原视频是 45 秒静音剪辑，展示原作品的声音设计过程，但不是音效试听。
+公开模板沿用原项目的机器外壳与交互，接入三枚历史 Skill 测试样例：西藏拉萨布达拉宫、西藏山南普莫雍错、苏州留园。样例与私人信箱独立，来源和未核实项见 [provenance.json](skills/yomemado-stamp-maker/examples/provenance.json)。项目页直接使用用户提供的 45 秒 1080p 有声原片，保留原文件画面与现有音轨，不压缩、不剪辑、不重新编码；见 [原片说明](docs/视频演示.md)。
 
 ## 一键部署自己的机器
 
@@ -56,7 +56,7 @@ python skills/yomemado-stamp-maker/scripts/check_stamp.py output/001-front.png o
 
 - 默认调用系统宋体或宋体类衬线字型，可以按喜好更换；不分发系统字体文件。示例 PNG 背面以 Noto Serif CJK（思源宋体类）渲染。
 - 演示视频中的手写字体为白河的[星光小熊猫体幼儿风 Beta 2.1](https://github.com/cyberinkflow/StarPandaKidsFonts)；公开包不含该字体文件。
-- 原项目配乐参考 **AKMU（乐童音乐家）《Farewell》 / SAILING**：[官方收听](https://music.apple.com/us/song/farewell/1480802556)。保留播放器和更换入口，公开包不附原录音。
+- 原项目配乐参考 **AKMU（乐童音乐家）《Farewell》 / SAILING**：[官方收听](https://music.apple.com/us/song/farewell/1480802556)。模板保留播放器和更换入口，不单独附整首歌曲文件。项目演示按用户要求保留原片现有音轨，视频及音乐不随代码 MIT 许可开放重用，歌曲公开使用的授权仍需单独确认。
 - 现有机器与示例的来源、参考项目和边界见 [第三方说明](THIRD_PARTY_NOTICES.md) 与 [公开边界](docs/公开边界.md)。原创代码与文档采用 [MIT License](LICENSE)，不替第三方字体、录音或其他素材授予许可。
 
 ## 开发检查
