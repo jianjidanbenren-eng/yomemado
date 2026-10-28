@@ -8,12 +8,12 @@
 
 | 平台 | 设置 |
 | --- | --- |
-| Vercel | 从仓库部署，Root Directory 选 `template`，无需 Build Command 或环境变量 |
+| Vercel | Root Directory 选 `template`；Framework Preset 选 `Other`，Build Command 留空，Output Directory 用 `.`；无需环境变量 |
 | Netlify | 仓库根目录 `netlify.toml` 已配置 `base = "template"`、`publish = "."` |
 | GitHub Pages | 项目手记在根目录，公开机器位于 `/template/` |
 | 本地 | 在本目录运行 `python -m http.server 8000`，打开 http://localhost:8000 |
 
-机器是纯静态 HTML/CSS/JS，无后端、API 密钥或 npm 依赖。用本地服务器检查图片下载，直接双击 HTML 时浏览器可能禁止读取 PNG 来打 ZIP。部署后实际走一次地图、出票、取信、翻面、下载、入藏和刷新。
+机器是纯静态 HTML/CSS/JS，无后端、API 密钥或 npm 依赖。访客无需登录，也无需第二个 ChatGPT 账号；部署者使用自己的 GitHub 与托管平台账户即可。用本地服务器检查图片下载，直接双击 HTML 时浏览器可能禁止读取 PNG 来打 ZIP。部署后实际走一次地图、出票、取信、翻面、下载、入藏和刷新。
 
 ## 替换内容
 
@@ -30,6 +30,44 @@
 地图坐标 `mapX/mapY` 范围为 0–100；经纬度未核实就填 `null`，不编造。已有示例为地区示意，具体摄影位置、留园房间及精确坐标未独立核实。
 
 背面逐字正文来自 `letters.js`，PNG 仍是完整纸面和下载成品。替换文字或字体后需要重新制票，让网页与下载内容一致。覆盖同编号图片时更新资源路径或版本参数，避免继承旧内容的手动收藏标记。
+
+## 第一次换成自己的信
+
+先在自己的部署副本里，用随包阿尔法玛 005 练习一次；下面的文字、日期与图片属于同一套示例。
+
+1. 从 `skills/yomemado-stamp-maker/examples/` 取出 `005-front.png` 和 `005-back.png`，复制到 `template/assets/stamps/`。网页部署根目录里必须实际有这两个文件。
+2. 在 `template/config.js` 改 `siteTitle`、`receiverName`，并为自己的机器设置一个新的 `storageKey`；例如 `my-yomemado-v1`。
+3. 打开 `template/letters.js`，保留 `window.YOMEMADO_LETTERS = [...]` 的外层结构；将原来的 003 对象整段替换成下面的 005 对象，保留 001 和 002。对象之间用逗号分隔。
+
+```js
+{
+  "id": "005",
+  "date": "2026-10-28",
+  "title": "阿尔法玛｜窗与海",
+  "place": "Alfama, Lisbon",
+  "region": "Lisbon, Portugal",
+  "paragraphs": [
+    "屋里很暗，右边那扇窗却被光染成了金色。窗外的蓝铺得很远，细浪把安静一点点送进来。",
+    "这是按用户提供照片转绘的阿尔法玛窗景示例。地点沿用用户标签；具体房间与窗外水域未独立核实，保留画面里的开阔与明暗。"
+  ],
+  "signature": "—— 游目窗 · 公开示例",
+  "latitude": null,
+  "longitude": null,
+  "coordinatesVerified": false,
+  "mapX": 48.5,
+  "mapY": 32.5,
+  "frontImage": "assets/stamps/005-front.png",
+  "backImage": "assets/stamps/005-back.png",
+  "sample": true
+}
+```
+
+4. 重新部署或刷新本地页面。应看到三个地图点，显示屏能选到 `LETTER 005 / ALFAMA, LISBON`；藏信先只有 001、002 两枚已读旧信。取出 005、翻面阅读后仍是两枚；亲手入藏后变三枚，刷新后保留。
+5. 换成自己的照片时，先让 Skill 交付一套完整正反面 PNG，再用对应 JSON 更新来信字段与两个图片路径。编号、日期、正文、落款和下载 PNG 要一致；照片原图与画芯不直接充当邮票正反面。
+
+以后新增来信时，在数组末尾追加一封使用新编号的对象，并保留旧信。三封变四封时，地图四点、三枚旧信已读，最新一枚等手动入藏；不要直接用缺少地图和图片路径的制票 JSON 覆盖整个 `letters.js`。
+
+部署字段可对照 [Vercel 静态构建设置](https://vercel.com/docs/builds/configure-a-build) 与 [Netlify 基础目录设置](https://docs.netlify.com/build/configure-builds/overview/)。
 
 ## 收信与阅读
 
