@@ -2,11 +2,17 @@
 
 一台可自己部署的世界来信机：地图选点、黄铜按钮出票、取出邮票、翻面读信、保存正反面，再亲手收入藏信册。
 
-**[直接体验公开机器](https://jianjidanbenren-eng.github.io/yomemado/template/)** · [45 秒真实项目演示与手记](https://jianjidanbenren-eng.github.io/yomemado/) · [制票 Skill](skills/yomemado-stamp-maker/SKILL.md) · [三份完整提示词](skills/yomemado-stamp-maker/references/prompts.md)
+**[直接体验公开机器](https://jianjidanbenren-eng.github.io/yomemado/template/)** · [45 秒真实项目演示与手记](https://jianjidanbenren-eng.github.io/yomemado/) · [制票 Skill](skills/yomemado-stamp-maker/SKILL.md) · [完整提示词](skills/yomemado-stamp-maker/references/prompts.md)
 
 [![游目窗项目视频封面](assets/showcase-poster.webp)](https://jianjidanbenren-eng.github.io/yomemado/#showcase)
 
 公开模板沿用原项目的机器外壳与交互，接入三枚历史 Skill 测试样例：西藏拉萨布达拉宫、西藏山南普莫雍错、苏州留园。样例与私人信箱独立，来源和未核实项见 [provenance.json](skills/yomemado-stamp-maker/examples/provenance.json)。项目页直接使用用户提供的 45 秒 1080p 有声原片，保留原文件画面与现有音轨，不压缩、不剪辑、不重新编码；见 [原片说明](docs/视频演示.md)。
+
+## 灵感、参考与改写
+
+感谢[池又雨 / Yinglianchun](https://github.com/Yinglianchun)的世界之窗与外部唤醒启发；制票方法学习并改写自 **cakeni 的 Ukiyoe Picture Skill、Yan Liu 的 Mono Color Skill、FANTASY／梵想美学的 Photo Revival**。我们在此基础上增加无字画芯与固定套版分工、双模式、透明双面、两行短名和实际验收规则。
+
+每项参考的原链接、具体改动与待核实出处见[灵感与致谢](docs/灵感与致谢.md)；随 Skill 保留的[来源与许可](skills/yomemado-stamp-maker/references/sources.md)不依赖私人资料。不能把这些伙伴的方法和全部素材一并宣称为本项目独创或 MIT。
 
 ## 一键部署自己的机器
 
@@ -32,7 +38,7 @@
 
 ## 可复用的制票 Skill
 
-[SKILL.md](skills/yomemado-stamp-maker/SKILL.md) 包括照片转绘、自主采风两种入口，引用 [规则](skills/yomemado-stamp-maker/references/rules.md)、[完整提示词](skills/yomemado-stamp-maker/references/prompts.md)、共享母版和可运行脚本。
+[SKILL.md](skills/yomemado-stamp-maker/SKILL.md) 包括照片转绘、自主采风两种入口，引用 [规则](skills/yomemado-stamp-maker/references/rules.md)、[完整提示词](skills/yomemado-stamp-maker/references/prompts.md)、[来源与改写](skills/yomemado-stamp-maker/references/sources.md)、共享母版和可运行脚本。提示词保留照片中文、照片英文、自主采风中文三份完整画芯正文，并补齐总执行、事实短笺与成品复核三份工作流提示词。
 
 流程：照片/核实资料 → 624×723 无字画芯 → 固定文字与外框套版 → 正反面 736×1040 RGBA PNG → 透明齿孔与文字校验。
 
@@ -58,6 +64,8 @@ python skills/yomemado-stamp-maker/scripts/check_stamp.py output/001-front.png o
 - 演示视频中的手写字体为白河的[星光小熊猫体幼儿风 Beta 2.1](https://github.com/cyberinkflow/StarPandaKidsFonts)；公开包不含该字体文件。
 - 原项目配乐参考 **AKMU（乐童音乐家）《Farewell》 / SAILING**：[官方收听](https://music.apple.com/us/song/farewell/1480802556)。模板保留播放器和更换入口，不单独附整首歌曲文件。项目演示按用户要求保留原片现有音轨，视频及音乐不随代码 MIT 许可开放重用，歌曲公开使用的授权仍需单独确认。
 - 现有机器与示例的来源、参考项目和边界见 [第三方说明](THIRD_PARTY_NOTICES.md) 与 [公开边界](docs/公开边界.md)。原创代码与文档采用 [MIT License](LICENSE)，不替第三方字体、录音或其他素材授予许可。
+
+遇到问题先读[二十项踩坑指南](docs/踩坑复盘.md)：每项区分现象、原因或风险、具体操作和验收，覆盖布局、声音、书写、制票、透明、存图、收藏、投递与跨设备读取。
 
 ## 开发检查
 

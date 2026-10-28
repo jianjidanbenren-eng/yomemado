@@ -14,7 +14,7 @@
 
 ## 制票入口
 
-在仓库根目录阅读 [制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)、[规则](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/rules.md) 和[三份完整提示词](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md)。先生成无字画芯，再由 Python/Pillow 固定套版；并非给网页配置音乐才能制票。
+在仓库根目录阅读 [制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)、[规则](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/rules.md) 和[完整提示词（含原三份画芯及三份工作流）](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md)。先生成无字画芯，再由 Python/Pillow 固定套版；并非给网页配置音乐才能制票。
 
 ## 自动投递与跨设备接入
 
@@ -36,3 +36,7 @@
 这是与原机一致的默认规则：001、002 是旧信，自动入藏且均为 READ / 已读；003 是最新一封，先留在地图等待亲手取信、阅读和入藏。只翻阅 003 不会增加藏信数量；点击「入藏」后才变成三枚。加入 004 后，旧三封自动入藏并已读，004 再等待手动入藏。已经收藏过 003 的浏览器刷新后仍会保留三枚，不会为了展示初始状态而清空记录。
 
 `testOnly: true` 的测试信不参与正式地图、计数及最新信判断。详细对照见[行为说明](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/行为对照.md)。
+
+## 来源与排错
+
+制票方法参考的作者、原项目及我们的修改见[灵感与致谢](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/灵感与致谢.md)。遇到图像、字形、透明、音效、书写、下载或同步问题，请按[踩坑指南](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/踩坑复盘.md)定位对应环节，保留已确认的布局和声音。

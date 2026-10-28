@@ -9,7 +9,7 @@ Vercel 根目录设为 template；Netlify 读取仓库根目录 netlify.toml 的
 - 改标题、收信人、宋体或音乐：config.js。
 - 改来信与正反 PNG：letters.js。
 - 改机器外壳/颜色：custom.css，保留 machine.js 所需的元素 ID。
-- 制作新邮票：仓库 skills/yomemado-stamp-maker 的 Skill、规则、完整提示词和脚本。
+- 制作新邮票：仓库 skills/yomemado-stamp-maker 的 Skill、规则、完整提示词和脚本，含原三份画芯提示词及新增三份工作流提示词。
 - 图片来源与未核实项：skills/yomemado-stamp-maker/examples/provenance.json。
 
 默认调用系统宋体/宋体类衬线字体。原视频使用白河的星光小熊猫体幼儿风 Beta 2.1；模板未包含该字体。原项目配乐参考 AKMU《Farewell》；播放器可换音乐，模板不单独附整首歌曲文件；项目页的演示视频按用户要求使用有声原片。
@@ -22,3 +22,5 @@ Vercel 根目录设为 template；Netlify 读取仓库根目录 netlify.toml 的
 
 
 原版 W32 交互音效已保留，包括 V3 出票、翻纸、两段钢笔声和藏信开合；机音与背景音乐分别控制。音效更换与来源见 [使用说明](USAGE.md)。
+
+灵感与参考作者见[灵感与致谢](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/灵感与致谢.md)，Skill 包内同时保留来源与许可；常见问题见[二十项踩坑指南](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/踩坑复盘.md)。

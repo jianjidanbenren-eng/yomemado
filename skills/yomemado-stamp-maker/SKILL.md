@@ -7,6 +7,8 @@ description: 将用户照片转绘为木版画风格邮票画芯，或依据可�
 
 使用同一个公开母版，按“事实与画芯 → 固定排版 → 正反面 PNG → 校验”完成作品。先读 [规则](references/rules.md)；需要生成画芯时读 [完整提示词](references/prompts.md)。
 
+本 Skill 在 cakeni 的 Ukiyoe Picture Skill、Yan Liu 的 Mono Color Skill、FANTASY／梵想美学的 Photo Revival 等公开方法上学习、改写，再形成游目窗的制票约束。首次使用或再次分发时读 [来源与改写](references/sources.md)，保留作者、原仓库链接和随包许可。完整提示词另含总执行、事实短笺与成品复核入口；不要只执行画芯提示词就把整条流程标为完成。
+
 ## 选择入口
 
 - 用户提供照片：采用 `mode=photo`。以实际照片确定主体、构图与物体关系。记录来源；不要把未附带的照片当成已经读过。
