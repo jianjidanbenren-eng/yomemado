@@ -10,13 +10,67 @@
   'use strict';
   function create({enabled = true, basePath = 'assets/sfx/'} = {}) {
     let sfxOn = enabled, soundContext = null;
-    const samples = {}, transient = new Set();
+    const samples = {}, transient = new Set(), buffers = {}, loading = {}, activeSamples = new Map();
+    const sampleKinds = ['switch', 'coordinate', 'stamp', 'flip', 'pen', 'archive_save', 'archive_open', 'archive_close'];
     const sourceURL = kind => basePath.replace(/\/?$/, '/') + kind + '.mp3';
+    function mediaSample(kind) {
+      if (!samples[kind]) { samples[kind] = new window.Audio(sourceURL(kind)); samples[kind].preload = 'auto'; samples[kind].load?.(); }
+      return samples[kind];
+    }
+    function ensureContext() {
+      const C = window.AudioContext || window.webkitAudioContext;
+      if (!C) return null;
+      try { if (!soundContext) soundContext = new C({latencyHint: 'interactive'}); } catch (_) { return null; }
+      return soundContext;
+    }
+    function loadSample(kind) {
+      const ctx = ensureContext(); if (!ctx) return Promise.resolve(null);
+      if (buffers[kind]) return Promise.resolve(buffers[kind]);
+      if (!loading[kind]) loading[kind] = window.fetch(sourceURL(kind))
+        .then(r => { if (!r.ok) throw Error('Sound HTTP ' + r.status); return r.arrayBuffer(); })
+        .then(bytes => ctx.decodeAudioData(bytes))
+        .then(buffer => (buffers[kind] = buffer))
+        .catch(err => { delete loading[kind]; console.warn('Sound sample unavailable:', kind, err); return null; });
+      return loading[kind];
+    }
+    function preload() {
+      // Keep the sped-up paper sound on the pitch-preserving media pipeline.
+      mediaSample('flip');
+      if (ensureContext()) return Promise.all(sampleKinds.filter(k => k !== 'flip').map(loadSample));
+      for (const kind of sampleKinds) mediaSample(kind);
+      return Promise.resolve([]);
+    }
+    function unlock() {
+      const ctx = ensureContext();
+      if (ctx?.state === 'suspended' || ctx?.state === 'interrupted') ctx.resume().catch(() => {});
+    }
+    function playBuffer(kind, buffer, {volume = 1, playbackRate = 1, startAt = 0, stopAfter = 0, restart = true} = {}) {
+      if (!sfxOn) return;
+      const ctx = initSound(); if (!ctx) return;
+      if (restart) { const old = activeSamples.get(kind); if (old) { try { old.stop(); } catch (_) {} } }
+      const source = ctx.createBufferSource(), gain = ctx.createGain(), now = ctx.currentTime;
+      source.buffer = buffer; source.playbackRate.value = playbackRate;
+      gain.gain.setValueAtTime(Math.max(0, Math.min(1, volume)), now);
+      source.connect(gain); gain.connect(ctx.destination);
+      source.onended = () => { if (activeSamples.get(kind) === source) activeSamples.delete(kind); transient.delete(source); try { source.disconnect(); gain.disconnect(); } catch (_) {} };
+      if (restart) activeSamples.set(kind, source); else transient.add(source);
+      source.start(now, Math.max(0, startAt));
+      if (stopAfter > 0) source.stop(now + stopAfter / 1000);
+      return source;
+    }
+    function bufferedSample(kind, options) {
+      if (!sfxOn || !initSound()) return;
+      if (buffers[kind]) return playBuffer(kind, buffers[kind], options);
+      // Only the initial load can wait. Cancel obsolete gestures instead of playing them late.
+      const requested = Date.now(), token = soundGeneration;
+      loadSample(kind).then(buffer => { if (buffer && token === soundGeneration && Date.now() - requested < 250) playBuffer(kind, buffer, options); });
+    }
+    let soundGeneration = 0;
     function sample(kind, volume = 1) {
       if (!sfxOn) return;
+      if (ensureContext()) return bufferedSample(kind, {volume});
       try {
-        let a = samples[kind];
-        if (!a) { a = new window.Audio(sourceURL(kind)); a.preload = 'auto'; samples[kind] = a; }
+        const a = mediaSample(kind);
         a.pause();
         if (a.readyState >= 1) { try { a.currentTime = 0; } catch (_) {} }
         a.playbackRate = 1;
@@ -26,24 +80,21 @@
         return a;
       } catch (_) {}
     }
+    let segmentTimer;
     function playSampleSegment(kind, {volume = 1, playbackRate = 1, startAt = 0, stopAfter = 0} = {}) {
       if (!sfxOn) return;
       try {
-        const a = new window.Audio(sourceURL(kind)); transient.add(a);
+        const a = mediaSample(kind); a.pause(); clearTimeout(segmentTimer); transient.add(a);
         a.preload = 'auto'; a.volume = Math.max(0, Math.min(1, volume));
-        a.playbackRate = playbackRate; a.currentTime = Math.max(0, startAt);
+        a.playbackRate = playbackRate; a.preservesPitch = true; a.currentTime = Math.max(0, startAt);
         a.onended = () => transient.delete(a);
         const p = a.play(); if (p?.catch) p.catch(() => transient.delete(a));
-        if (stopAfter > 0) setTimeout(() => { try { a.pause(); a.currentTime = 0; } catch (_) {} transient.delete(a); }, stopAfter);
+        if (stopAfter > 0) segmentTimer = setTimeout(() => { try { a.pause(); a.currentTime = 0; } catch (_) {} transient.delete(a); }, stopAfter);
         return a;
       } catch (_) {}
     }
     function initSound() {
-      const C = window.AudioContext || window.webkitAudioContext;
-      if (!C) return null;
-      if (!soundContext) soundContext = new C();
-      if (soundContext.state === 'suspended') soundContext.resume().catch(() => {});
-      return soundContext;
+      const ctx = ensureContext(); unlock(); return ctx;
     }
     // ORIGINAL_V3_BEGIN: retained verbatim from the approved machine.
   function v3Tone(freq,offset,length,volume,type='sine',fall=0){
@@ -102,22 +153,16 @@
 
     // W32 uses the clear opening of the same pen sample for both passages.
     const WRITER_FIRST_DELAY = 770, WRITER_PASSAGES_MS = [2180, 2060], WRITER_PAUSE_MS = 430;
-    let penContext = null, penBufferPromise = null, activePen = null, writeToken = 0;
+    let activePen = null, writeToken = 0;
     const writerTimers = new Set();
     function getPenContext() {
       try {
-        if (!penContext) { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; penContext = new C(); }
-        if (penContext.state === 'suspended') penContext.resume().catch(() => {});
-        return penContext;
+        return initSound();
       } catch (_) { return null; }
     }
     function preparePen() {
       const ctx = getPenContext(); if (!ctx) return null;
-      if (!penBufferPromise) penBufferPromise = window.fetch(sourceURL('pen'))
-        .then(r => { if (!r.ok) throw Error('Pen sample HTTP ' + r.status); return r.arrayBuffer(); })
-        .then(bytes => ctx.decodeAudioData(bytes))
-        .catch(err => { penBufferPromise = null; console.warn('Pen effect unavailable', err); return null; });
-      return penBufferPromise;
+      return loadSample('pen');
     }
     function stopPen() {
       if (activePen) { try { activePen.stop(); activePen.disconnect(); } catch (_) {} activePen = null; }
@@ -160,10 +205,16 @@
       later(() => passage(0), WRITER_FIRST_DELAY);
     }
     function setEnabled(on) {
-      sfxOn = Boolean(on);
-      if (!sfxOn) { stopWriting(); for (const a of [...Object.values(samples), ...transient]) if (a !== samples.switch) a.pause(); transient.clear(); }
+      sfxOn = Boolean(on); soundGeneration++;
+      if (!sfxOn) {
+        stopWriting();
+        for (const [kind, source] of activeSamples) if (kind !== 'switch') { try { source.stop(); } catch (_) {} }
+        for (const a of [...Object.values(samples), ...transient]) if (a !== samples.switch) { try { if (a.pause) a.pause(); else a.stop(); } catch (_) {} }
+        transient.clear();
+      }
     }
-    return {play: playSfx, setEnabled, startWriting, stopWriting};
+    preload(); // Fetch and decode before gestures; this does not start audio playback.
+    return {play: playSfx, setEnabled, startWriting, stopWriting, preload, unlock};
   }
   return {create};
 });
