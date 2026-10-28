@@ -1,1 +1,1 @@
-Pillow>=10,<13
+-r skills/yomemado-stamp-maker/requirements.txt

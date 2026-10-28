@@ -8,9 +8,10 @@ import unittest
 
 from PIL import Image
 
-from tools.check_stamp import inspect
+import runpy
 
 ROOT = Path(__file__).resolve().parents[1]
+inspect = runpy.run_path(str(ROOT / "skills/yomemado-stamp-maker/scripts/check_stamp.py"))["inspect"]
 
 
 class StampCheckerTests(unittest.TestCase):
@@ -54,7 +55,7 @@ class StampCheckerTests(unittest.TestCase):
 
 class ShowcaseAssetTests(unittest.TestCase):
     def test_real_video_is_checked_in(self):
-        path = ROOT / "assets" / "yomemado-showcase-original.mp4"
+        path = ROOT / "docs" / "assets" / "yomemado-showcase-original.mp4"
         self.assertTrue(path.is_file())
         self.assertGreater(path.stat().st_size, 100_000)
         with path.open("rb") as stream:
@@ -64,8 +65,8 @@ class ShowcaseAssetTests(unittest.TestCase):
     def test_original_video_is_unmodified_and_retains_its_audio_track(self):
         import hashlib
         import json
-        source = json.loads((ROOT / "assets/showcase-source.json").read_text())
-        data = (ROOT / "assets" / source["file"]).read_bytes()
+        source = json.loads((ROOT / "docs/assets/showcase-source.json").read_text())
+        data = (ROOT / "docs" / "assets" / source["file"]).read_bytes()
         self.assertEqual(len(data), source["bytes"])
         self.assertEqual(hashlib.sha256(data).hexdigest(), source["sha256"])
         self.assertIn(b"vide", data)
@@ -73,7 +74,7 @@ class ShowcaseAssetTests(unittest.TestCase):
         self.assertEqual((source["width"], source["height"], source["durationSeconds"]), (1920, 1080, 45))
 
     def test_webp_poster_is_checked_in(self):
-        path = ROOT / "assets" / "showcase-poster.webp"
+        path = ROOT / "docs" / "assets" / "showcase-poster.webp"
         self.assertTrue(path.is_file())
         with Image.open(path) as poster:
             self.assertEqual(poster.format, "WEBP")
@@ -83,8 +84,8 @@ class ShowcaseAssetTests(unittest.TestCase):
         page = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('id="showcase-film"', page)
         self.assertIn('controls playsinline', page)
-        self.assertIn('assets/yomemado-showcase-original.mp4', page)
-        self.assertIn('assets/showcase-poster.webp', page)
+        self.assertIn('docs/assets/yomemado-showcase-original.mp4', page)
+        self.assertIn('docs/assets/showcase-poster.webp', page)
         self.assertEqual(page.count('class="film-chapter"'), 5)
 
 

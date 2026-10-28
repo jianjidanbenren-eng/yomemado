@@ -1,81 +1,45 @@
 # 游目窗 · 浮世来信机
 
-一台可自己部署的世界来信机：地图选点、黄铜按钮出票、取出邮票、翻面读信、保存正反面，再亲手收入藏信册。
+一台可以自己部署的世界来信机：地图选点 → 出票 → 翻面读信 → 下载双面邮票 → 亲手入藏。
 
-**[直接体验公开机器](https://jianjidanbenren-eng.github.io/yomemado/template/)** · [45 秒真实项目演示与手记](https://jianjidanbenren-eng.github.io/yomemado/) · [制票 Skill](skills/yomemado-stamp-maker/SKILL.md) · [完整提示词](skills/yomemado-stamp-maker/references/prompts.md)
+**[试玩机器](https://jianjidanbenren-eng.github.io/yomemado/template/)** · [看原片与项目手记](https://jianjidanbenren-eng.github.io/yomemado/) · [部署和使用](template/USAGE.md)
 
-[![游目窗项目视频封面](assets/showcase-poster.webp)](https://jianjidanbenren-eng.github.io/yomemado/#showcase)
+## 从这里开始
 
-公开模板沿用原项目的机器外壳与交互，接入三枚历史 Skill 测试样例：西藏拉萨布达拉宫、西藏山南普莫雍错、苏州留园。样例与私人信箱独立，来源和未核实项见 [provenance.json](skills/yomemado-stamp-maker/examples/provenance.json)。项目页直接使用用户提供的 45 秒 1080p 有声原片，保留原文件画面与现有音轨，不压缩、不剪辑、不重新编码；见 [原片说明](docs/视频演示.md)。
+| 你想做什么 | 只需打开 |
+| --- | --- |
+| 部署、换图片／外壳／字体／音乐，了解收信规则 | [使用说明](template/USAGE.md) |
+| 制作自己的邮票 | [制票 Skill](skills/yomemado-stamp-maker/SKILL.md) · [完整提示词](skills/yomemado-stamp-maker/references/prompts.md) |
+| 给小机接自动投递或跨设备读信 | [接入说明](docs/自动投递与跨设备接入.md)（进阶、按需） |
+| 遇到问题 | [二十项踩坑指南](docs/踩坑复盘.md) |
+| 找灵感来源、参考作者与素材许可 | [灵感与致谢](docs/灵感与致谢.md) |
 
-## 灵感、参考与改写
-
-感谢[池又雨 / Yinglianchun](https://github.com/Yinglianchun)的世界之窗与外部唤醒启发；制票方法学习并改写自 **cakeni 的 Ukiyoe Picture Skill、Yan Liu 的 Mono Color Skill、FANTASY／梵想美学的 Photo Revival**。我们在此基础上增加无字画芯与固定套版分工、双模式、透明双面、两行短名和实际验收规则。
-
-每项参考的原链接、具体改动与待核实出处见[灵感与致谢](docs/灵感与致谢.md)；随 Skill 保留的[来源与许可](skills/yomemado-stamp-maker/references/sources.md)不依赖私人资料。不能把这些伙伴的方法和全部素材一并宣称为本项目独创或 MIT。
-
-## 一键部署自己的机器
+## 部署自己的机器
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjianjidanbenren-eng%2Fyomemado&root-directory=template&project-name=my-yomemado&repository-name=my-yomemado)
-
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jianjidanbenren-eng/yomemado)
 
-- Vercel：Root Directory 为 `template`，静态网页无需 Build Command 或环境变量。
-- Netlify：仓库根目录的 `netlify.toml` 已设置 `base = "template"`、`publish = "."`。
-- GitHub Pages：项目手记在根目录，公开机器在 `/template/`。
+Vercel 根目录选 `template`；Netlify 使用仓库配置。模板是静态网页，不需要后台或密钥。先改 `template/config.js`（名称、字体、音乐），再改 `template/letters.js`（来信和图片）。详细步骤统一放在使用说明。
 
-部署模板本身是纯静态 HTML/CSS/JS，无后端、API 密钥或 npm 依赖。制票脚本是独立的 Python/Pillow 工作流。
+## 项目只有四个主要目录
 
-| 想改什么 | 修改位置 |
-|---|---|
-| 站名、界面收信人、字体与音乐地址 | `template/config.js` |
-| 邮票正反面、来信文字数据、完整地点与点位 | `template/letters.js`、`template/assets/stamps/` |
-| 机器外壳、颜色、纹理与布局 | `template/custom.css`；保留交互元素 ID |
-| 制作自己的新邮票 | `skills/yomemado-stamp-maker/` |
-| 部署和替换方法 | [模板使用说明](template/USAGE.md) |
+| 目录 | 用途 |
+| --- | --- |
+| `template/` | 可直接部署的机器、配置、示例和唯一使用说明 |
+| `skills/` | 可独立复用的制票 Skill、六份完整提示词、母版、脚本、样例及许可 |
+| `docs/` | 来源、踩坑、进阶接入三篇说明；原片和封面在 `docs/assets/` |
+| `tests/` | 自动检查；维护项目时使用 |
 
-修改网页字体或收信人不会重绘已有 PNG 内的文字；邮票内容需要用脚本重新导出，再替换正反面文件。
+公开样例为布达拉宫、普莫雍错、苏州留园，当前三个地图点对应两枚已读旧信，最新一枚亲手入藏。阅读与收藏默认保存在本浏览器；后端接入另见进阶说明。
 
-## 可复用的制票 Skill
-
-[SKILL.md](skills/yomemado-stamp-maker/SKILL.md) 包括照片转绘、自主采风两种入口，引用 [规则](skills/yomemado-stamp-maker/references/rules.md)、[完整提示词](skills/yomemado-stamp-maker/references/prompts.md)、[来源与改写](skills/yomemado-stamp-maker/references/sources.md)、共享母版和可运行脚本。提示词保留照片中文、照片英文、自主采风中文三份完整画芯正文，并补齐总执行、事实短笺与成品复核三份工作流提示词。
-
-流程：照片/核实资料 → 624×723 无字画芯 → 固定文字与外框套版 → 正反面 736×1040 RGBA PNG → 透明齿孔与文字校验。
-
-```bash
-python -m pip install -r skills/yomemado-stamp-maker/requirements.txt
-python skills/yomemado-stamp-maker/scripts/render_stamp.py --art skills/yomemado-stamp-maker/examples/001-art.png --data skills/yomemado-stamp-maker/examples/001.json --font /path/to/local-songti-font --out output
-python skills/yomemado-stamp-maker/scripts/check_stamp.py output/001-front.png output/001-back.png
-```
-
-中文短笺需要本地宋体/CJK 字体；按 [Skill 说明](skills/yomemado-stamp-maker/SKILL.md) 传入路径，字体文件不会上传。已有画芯套版与“AI 根据新照片生成画芯”是不同环节；三个历史样例不冒充新一轮全自动生图验收。原六场景规范中的另外三个场景尚未补齐可追溯成品。
-
-## 收信和藏信规则
-
-地图显示全部有效正式来信。当前三封样例对应三个点，藏信先有 001、002 两枚旧信，均显示 READ / 已读；最新的 003 即使读过，也要亲手点「入藏」才成为第三枚。加入第四封后，旧三封自动入藏且已读，最新第四封继续等待手动入藏。藏信按编号倒序排列，测试信不参与正式计数。
-
-翻至背面后，正文按原 W32 的两段节奏逐字写出，最后出现落款；静音仍有写字动画。完整规则与保留项见 [与原机的行为对照](docs/行为对照.md)。存图始终下载完整的原 PNG，不受动画进度影响。
-
-收藏、最新来信的阅读状态保存在本浏览器，跨设备不自动同步。自动采风、AI 制票、定时投递和跨设备个人账户同步可按[自动投递与跨设备接入说明](docs/自动投递与跨设备接入.md)配置自己的后端；其中区分“各设备读到同一批来信”和“个人阅读/收藏同步”，并提供配置单、接口约定、排障与可直接交给小机的提示词。说明不等于已内置服务，模板不会连接作者的私人站点或任务。
-
-## 字体、音乐与来源
-
-- 默认调用系统宋体或宋体类衬线字型，可以按喜好更换；不分发系统字体文件。示例 PNG 背面以 Noto Serif CJK（思源宋体类）渲染。
-- 演示视频中的手写字体为白河的[星光小熊猫体幼儿风 Beta 2.1](https://github.com/cyberinkflow/StarPandaKidsFonts)；公开包不含该字体文件。
-- 原项目配乐参考 **AKMU（乐童音乐家）《Farewell》 / SAILING**：[官方收听](https://music.apple.com/us/song/farewell/1480802556)。模板保留播放器和更换入口，不单独附整首歌曲文件。项目演示按用户要求保留原片现有音轨，视频及音乐不随代码 MIT 许可开放重用，歌曲公开使用的授权仍需单独确认。
-- 现有机器与示例的来源、参考项目和边界见 [第三方说明](THIRD_PARTY_NOTICES.md) 与 [公开边界](docs/公开边界.md)。原创代码与文档采用 [MIT License](LICENSE)，不替第三方字体、录音或其他素材授予许可。
-
-遇到问题先读[二十项踩坑指南](docs/踩坑复盘.md)：每项区分现象、原因或风险、具体操作和验收，覆盖布局、声音、书写、制票、透明、存图、收藏、投递与跨设备读取。
+灵感感谢[池又雨 / Yinglianchun](https://github.com/Yinglianchun)；制票方法学习并改写自 **cakeni、Yan Liu、FANTASY／梵想美学**的公开 Skill。原项目、改写与许可见上方致谢入口，Skill 内也保留来源与许可原文。项目页使用用户的 45 秒有声原片。
 
 ## 开发检查
 
 ```bash
-python -m pip install -r requirements.txt
+python -m pip install -r skills/yomemado-stamp-maker/requirements.txt
 python -m unittest discover -s tests -v
 node --test tests/*.test.cjs
 ```
 
-本地体验：`cd template` 后运行 `python -m http.server 8000`，打开 http://localhost:8000。请用本地服务器检查 ZIP 下载，避免直接双击 HTML 的文件读取限制。
-
-
-原版 W32 交互音效已保留，包括 V3 出票、翻纸、两段钢笔声和藏信开合；机音与背景音乐分别控制。音效更换与来源见 [使用说明](template/USAGE.md)。
+原创建作采用 [MIT](LICENSE)；第三方素材的范围统一见[来源说明](docs/灵感与致谢.md)。
