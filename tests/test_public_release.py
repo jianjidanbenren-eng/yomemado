@@ -94,11 +94,13 @@ class DeployableTemplateTests(unittest.TestCase):
 
     def test_template_is_config_driven(self):
         page = (ROOT / "template" / "index.html").read_text(encoding="utf-8")
+        logic = (ROOT / "template" / "machine.js").read_text(encoding="utf-8")
         self.assertIn('src="./config.js"', page)
         self.assertIn('src="./letters.js"', page)
-        self.assertIn("localStorage", page)
+        self.assertIn('src="./machine.js"', page)
+        self.assertIn("localStorage", logic)
         self.assertIn("RELEASE", page)
-        self.assertIn("COLLECT", page)
+        self.assertIn("入藏", page)
 
     def test_public_template_has_no_private_service_links(self):
         content = "\n".join(
@@ -121,6 +123,65 @@ class DeployableTemplateTests(unittest.TestCase):
         self.assertIn("vercel.com/new/clone", readme)
         self.assertIn("app.netlify.com/start/deploy", readme)
         self.assertIn("root-directory=template", readme)
+
+    def test_real_public_stamp_pairs(self):
+        for tag in ("001", "002", "003"):
+            folder = ROOT / "template/assets/stamps"
+            self.assertTrue(inspect(folder / f"{tag}-front.png", folder / f"{tag}-back.png")["ok"])
+
+    def test_public_bundle_has_no_font_or_audio_recordings(self):
+        for folder in (ROOT / "template", ROOT / "skills"):
+            for path in folder.rglob("*"):
+                self.assertNotIn(path.suffix.lower(), {".ttf", ".otf", ".ttc", ".mp3", ".m4a", ".wav"})
+                if path.suffix in {".html", ".css", ".js"}:
+                    text = path.read_text(encoding="utf8")
+                    self.assertNotIn("data:font", text)
+                    self.assertNotIn("application/octet-stream", text)
+
+    def test_deploy_root_is_the_machine(self):
+        import tomllib
+        data = tomllib.loads((ROOT / "netlify.toml").read_text())
+        self.assertEqual(data["build"], {"base": "template", "publish": "."})
+
+
+class PublicSkillTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        cls.skill = ROOT / "skills/yomemado-stamp-maker"
+        spec = importlib.util.spec_from_file_location("public_renderer", cls.skill / "scripts/render_stamp.py")
+        cls.renderer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.renderer)
+
+    def test_standalone_renderer_and_actual_alpha(self):
+        import json
+        data = json.loads((self.skill / "examples/002.json").read_text())
+        data.update(id="TEST", paragraphs=["A lake, snow and distant mountains. A new note for the public example."], signature="Yomemado")
+        with tempfile.TemporaryDirectory() as folder:
+            front, back = self.renderer.render(self.skill / "examples/002-art.png", data, folder)
+            self.assertTrue(inspect(front, back)["ok"])
+
+    def test_fixed_footer_rejects_overflow(self):
+        import json
+        data = json.loads((self.skill / "examples/002.json").read_text())
+        data["stamp"]["footerShortLines"] = ["AN IMPOSSIBLY LONG FOOTER", "LAKE"]
+        with tempfile.TemporaryDirectory() as folder, self.assertRaisesRegex(ValueError, "overflows"):
+            self.renderer.render(self.skill / "examples/002-art.png", data, folder)
+
+    def test_english_note_does_not_split_words(self):
+        from PIL import ImageDraw, ImageFont
+        draw = ImageDraw.Draw(Image.new("RGB", (300, 300)))
+        font = ImageFont.load_default(size=20)
+        text = "Distant mountain shadows cross the blue lake."
+        lines = self.renderer.wrap(draw, text, font, 160)
+        self.assertEqual(" ".join(lines), text)
+
+    def test_skill_references_exist(self):
+        import re
+        skill = (self.skill / "SKILL.md").read_text()
+        for link in re.findall(r"\]\(([^)]+)\)", skill):
+            if not link.startswith("https:"):
+                self.assertTrue((self.skill / link).is_file(), link)
 
 
 if __name__ == "__main__":

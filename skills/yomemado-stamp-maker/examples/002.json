@@ -1,0 +1,28 @@
+{
+  "id": "002",
+  "mode": "photo",
+  "sourcePhoto": "User-provided historical reference; original photograph is not distributed",
+  "place": "Pumo Yumco",
+  "region": "Shannan, Tibet, China",
+  "date": "2026-10-28",
+  "title": "普莫雍错",
+  "paragraphs": [
+    "蓝色湖面、雪冰边界与远山，保留在同一张小小的纸面上。",
+    "这是普莫雍错题材的历史测试样例。地点沿用原测试标签，地图点位仅作地区示意，不表示已核实的摄影位置。"
+  ],
+  "signature": "—— 游目窗 · 公开示例",
+  "stamp": {
+    "regionShort": "SHANNAN",
+    "pictureTitleShort": "PUMO YUMCO",
+    "pictureSubtitle": "THE HIGHLAND LAKE",
+    "footerShortLines": [
+      "PUMO",
+      "YUMCO"
+    ]
+  },
+  "sourceArtStatus": "Historical W45 prepared illustration, extracted and cleaned from an earlier full-stamp candidate; not a new AI generation test",
+  "geographyStatus": "英文转写存在不同拼法，本轮以Pumo Yumco作为邮票版式写法；位置未独立核实",
+  "latitude": null,
+  "longitude": null,
+  "coordinatesVerified": false
+}

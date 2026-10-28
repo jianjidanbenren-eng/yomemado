@@ -1,0 +1,33 @@
+{
+  "samples": [
+    {
+      "id": "001",
+      "place": "Potala Palace",
+      "source": "W45 photo-based historical illustration; W47 fixed-master tests",
+      "directNewAIArtworkGenerationVerified": false,
+      "coordinatesVerified": false
+    },
+    {
+      "id": "002",
+      "place": "Pumo Yumco",
+      "source": "W45 photo-based historical illustration; W47 fixed-master tests",
+      "directNewAIArtworkGenerationVerified": false,
+      "coordinatesVerified": false
+    },
+    {
+      "id": "003",
+      "place": "The Lingering Garden",
+      "source": "W45 photo-based historical illustration; W47 fixed-master tests",
+      "directNewAIArtworkGenerationVerified": false,
+      "coordinatesVerified": false
+    }
+  ],
+  "historicalTestCount": 6,
+  "includedVerifiedSamples": 3,
+  "remainingScenes": [
+    "极地海面",
+    "开窗望海",
+    "长窗木桌"
+  ],
+  "note": "The six-scene checklist is not a claim that six finished stamp pairs are distributed."
+}

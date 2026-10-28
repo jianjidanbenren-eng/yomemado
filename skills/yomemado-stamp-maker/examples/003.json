@@ -1,0 +1,28 @@
+{
+  "id": "003",
+  "mode": "photo",
+  "sourcePhoto": "User-provided historical reference; original photograph is not distributed",
+  "place": "The Lingering Garden",
+  "region": "Suzhou, Jiangsu, China",
+  "date": "2026-10-28",
+  "title": "留园",
+  "paragraphs": [
+    "格窗让午后的光，在墙面与地面留下了另一幅画。",
+    "这是苏州留园题材的历史测试样例。画中具体房间未独立核实；替换图片时，也请保留真实的窗棂与光影关系。"
+  ],
+  "signature": "—— 游目窗 · 公开示例",
+  "stamp": {
+    "regionShort": "SUZHOU",
+    "pictureTitleShort": "LINGERING GARDEN",
+    "pictureSubtitle": "THE LATTICE WINDOW",
+    "footerShortLines": [
+      "LIU",
+      "YUAN"
+    ]
+  },
+  "sourceArtStatus": "Historical W45 prepared illustration, extracted and cleaned from an earlier full-stamp candidate; not a new AI generation test",
+  "geographyStatus": "The Lingering Garden见苏州官方英文资料；画中具体房间未独立核实",
+  "latitude": null,
+  "longitude": null,
+  "coordinatesVerified": false
+}

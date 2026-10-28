@@ -1,0 +1,28 @@
+{
+  "id": "001",
+  "mode": "photo",
+  "sourcePhoto": "User-provided historical reference; original photograph is not distributed",
+  "place": "Potala Palace",
+  "region": "Lhasa, Tibet, China",
+  "date": "2026-10-28",
+  "title": "布达拉宫",
+  "paragraphs": [
+    "红白宫殿与远处群山，被转成了一小幅木版画。",
+    "这是布达拉宫题材的历史制票测试样例。你可以用自己的照片替换画芯，再让这台机器寄出属于你的故事。"
+  ],
+  "signature": "—— 游目窗 · 公开示例",
+  "stamp": {
+    "regionShort": "LHASA",
+    "pictureTitleShort": "POTALA",
+    "pictureSubtitle": "THE HILLTOP PALACE",
+    "footerShortLines": [
+      "POTALA",
+      "PALACE"
+    ]
+  },
+  "sourceArtStatus": "Historical W45 prepared illustration, extracted and cleaned from an earlier full-stamp candidate; not a new AI generation test",
+  "geographyStatus": "名字已核对；本轮不是正式来信、坐标未写入",
+  "latitude": null,
+  "longitude": null,
+  "coordinatesVerified": false
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "游目窗制票"
+  short_description: "照片转绘或自主采风，固定套版与透明双面邮票校验"
+  default_prompt: "使用 $yomemado-stamp-maker 制作一枚透明正反面邮票，保留来源、完整字段和校验结果。"

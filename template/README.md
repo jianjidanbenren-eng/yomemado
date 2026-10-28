@@ -1,36 +1,17 @@
-# 游目窗 · 可部署模板
+# 游目窗｜可部署的公开机器
 
-这是公开仓库里的**可部署版本**：零后端、零密钥、零依赖。部署后会直接得到一台可以点地图、出票、翻面、下载 PNG 和入藏的游目窗。
+沿用原项目机器外壳与完整交互，内置布达拉宫、普莫雍错、苏州留园三枚历史 Skill 测试样例。点地图 → RELEASE 出票 → 点击出口取信 → 翻面 → 下载正反面 ZIP → 手动入藏。
 
-## 一键部署
+[Deploy with Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjianjidanbenren-eng%2Fyomemado&root-directory=template&project-name=my-yomemado&repository-name=my-yomemado) · [Deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/jianjidanbenren-eng/yomemado)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjianjidanbenren-eng%2Fyomemado&root-directory=template&project-name=my-yomemado&repository-name=my-yomemado)
+Vercel 根目录设为 template；Netlify 读取仓库根目录 netlify.toml 的 base=template。网页纯静态，无需后端、密钥或 npm 安装。
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jianjidanbenren-eng/yomemado&create_from_path=template)
+- 改标题、收信人、宋体或音乐：config.js。
+- 改来信与正反 PNG：letters.js。
+- 改机器外壳/颜色：custom.css，保留 machine.js 所需的元素 ID。
+- 制作新邮票：仓库 skills/yomemado-stamp-maker 的 Skill、规则、完整提示词和脚本。
+- 图片来源与未核实项：skills/yomemado-stamp-maker/examples/provenance.json。
 
-这条 Vercel 路径已经按 `root-directory=template` 做过实际预览部署验证；模板不需要环境变量。\n\n部署成功后只需要改两个文件：
+默认调用系统宋体/宋体类衬线字体。原视频使用白河的星光小熊猫体幼儿风 Beta 2.1；模板未包含该字体。原项目配乐参考 AKMU《Farewell》；播放器可换音乐，公开包未附原录音。
 
-- `config.js`：站名、收信人、初始入藏状态。
-- `letters.js`：自己的来信、地点、经纬度、短笺与配色。
-
-更详细的说明见 [USAGE.md](USAGE.md)。
-
-## 这个模板包含什么
-
-- 世界地图红点选择
-- RELEASE 出票
-- 邮票正反面翻转
-- 生成并下载正反面 PNG
-- 手动「入藏」
-- 本机 localStorage 保存收藏状态
-- 电脑和手机响应式布局
-
-## 它没有什么
-
-这个公开模板**不包含**私人 W51 页面、私人来信、原音乐、第三方字体、私有插件、密钥或自动投递后端。它是为公开部署重新整理的静态版本。
-
-如果要做跨设备同步、自动定时寄信或服务端来信 API，需要自行增加后端；这些能力不会偷偷依赖作者的私人服务。
-
-## License
-
-模板中的原创代码与文字采用 MIT License。请为你自行加入的图片、字体、音乐确认各自的使用许可。
+阅读/收藏记录保存在本浏览器，跨设备不自动同步。新来信使之前的旧信自动入藏并显示已读；最新一枚等待你点击入藏。修改同一编号的图片会改变内容标记，旧手动收藏不会冒充对新图的收藏。

@@ -1,87 +1,68 @@
 # 游目窗 · 浮世来信机
 
-**一台从世界各地收到邮票的私人来信机。** 地图亮起红点，选一个地点，按下出票键，翻面读短笺；最新一封信是否入藏，由收信人决定。
+一台可自己部署的世界来信机：地图选点、黄铜按钮出票、取出邮票、翻面读信、保存正反面，再亲手收入藏信册。
 
-**▶ [观看 45 秒真实项目演示](https://jianjidanbenren-eng.github.io/yomemado/#showcase)** · [项目手记](https://jianjidanbenren-eng.github.io/yomemado/)（公开介绍页，不连接私人来信数据）。
+**[直接体验公开机器](https://jianjidanbenren-eng.github.io/yomemado/template/)** · [45 秒真实项目演示与手记](https://jianjidanbenren-eng.github.io/yomemado/) · [制票 Skill](skills/yomemado-stamp-maker/SKILL.md) · [三份完整提示词](skills/yomemado-stamp-maker/references/prompts.md)
 
-[![游目窗项目视频封面：世界邮政机器与浮世绘视觉](assets/showcase-poster.webp)](https://jianjidanbenren-eng.github.io/yomemado/#showcase)
+[![游目窗项目视频封面](assets/showcase-poster.webp)](https://jianjidanbenren-eng.github.io/yomemado/#showcase)
 
-*这是源项目的演示画面，不是重新搭建的样机。公开剪辑不含私人音乐和原视频音轨；视频展示过声音设计，但并非音效试听。*
+公开模板沿用原项目的机器外壳与交互，接入三枚历史 Skill 测试样例：西藏拉萨布达拉宫、西藏山南普莫雍错、苏州留园。样例与私人信箱独立，来源和未核实项见 [provenance.json](skills/yomemado-stamp-maker/examples/provenance.json)。原视频是 45 秒静音剪辑，展示原作品的声音设计过程，但不是音效试听。
 
-这个仓库用**真实的 45 秒项目演示、开发手记与可复用的检查工具**，分享项目如何从构思、声音和制票规范，走到定时采风、投递、网页接信与验收。这里不是私人 W51 网页的源码副本，也没有公开可访问的私人来信站点。
-
-> 公开版现在包含：**真实项目静音视频 + 项目手记 + 邮票检查工具 + 可一键部署的独立模板**。模板是为公开使用重新整理的静态版本，不包含私人 W51、私人来信、音乐、字体或写入凭据。
-
-## 一键部署你自己的游目窗
-
-不需要先配置服务器或 API。点击下面任意一个按钮，会复制公开模板并部署出你自己的站点：
+## 一键部署自己的机器
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjianjidanbenren-eng%2Fyomemado&root-directory=template&project-name=my-yomemado&repository-name=my-yomemado)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jianjidanbenren-eng/yomemado&create_from_path=template)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jianjidanbenren-eng/yomemado)
 
-部署后主要改两个文件：
+- Vercel：Root Directory 为 `template`，静态网页无需 Build Command 或环境变量。
+- Netlify：仓库根目录的 `netlify.toml` 已设置 `base = "template"`、`publish = "."`。
+- GitHub Pages：项目手记在根目录，公开机器在 `/template/`。
 
-- `config.js`：站名、收信人、初始入藏编号。
-- `letters.js`：地点、坐标、标题、短笺和配色。
+部署模板本身是纯静态 HTML/CSS/JS，无后端、API 密钥或 npm 依赖。制票脚本是独立的 Python/Pillow 工作流。
 
-模板本身已经包含地图红点、RELEASE 出票、翻面、PNG 下载和手动入藏。完整说明见 [template/README.md](template/README.md) 和 [template/USAGE.md](template/USAGE.md)。
+| 想改什么 | 修改位置 |
+|---|---|
+| 站名、界面收信人、字体与音乐地址 | `template/config.js` |
+| 邮票正反面、来信文字数据、完整地点与点位 | `template/letters.js`、`template/assets/stamps/` |
+| 机器外壳、颜色、纹理与布局 | `template/custom.css`；保留交互元素 ID |
+| 制作自己的新邮票 | `skills/yomemado-stamp-maker/` |
+| 部署和替换方法 | [模板使用说明](template/USAGE.md) |
 
-## 先看见它，再理解它
+修改网页字体或收信人不会重绘已有 PNG 内的文字；邮票内容需要用脚本重新导出，再替换正反面文件。
 
-公开介绍页将 45 秒影片分为五段，可点击时间戳跳转：
+## 可复用的制票 Skill
 
-| 时间 | 画面展示 | 项目思考 |
-| --- | --- | --- |
-| 00:00 | 浮世绘、机器配色与视觉层次 | 用画面气质建立邮政机器的世界 |
-| 00:09 | 声音分层与机械装置 | 让操作反馈跟随动作而不是随机播放 |
-| 00:18 | 出票过程与操作节奏 | 来信不是弹窗，而是一次仪式 |
-| 00:27 | 翻面、背面短笺和下载 | 阅读与保存指向同一份邮票资源 |
-| 00:36 | 藏信与机身布局 | 抵达和主动入藏是两种不同的状态 |
+[SKILL.md](skills/yomemado-stamp-maker/SKILL.md) 包括照片转绘、自主采风两种入口，引用 [规则](skills/yomemado-stamp-maker/references/rules.md)、[完整提示词](skills/yomemado-stamp-maker/references/prompts.md)、共享母版和可运行脚本。
 
-演示文件：[公开静音 MP4](assets/yomemado-showcase-silent.mp4)（1280 × 720，约 2.3 MB）· [视频镜头说明](docs/视频演示.md)。
+流程：照片/核实资料 → 624×723 无字画芯 → 固定文字与外框套版 → 正反面 736×1040 RGBA PNG → 透明齿孔与文字校验。
 
-## 直接体验
+```bash
+python -m pip install -r skills/yomemado-stamp-maker/requirements.txt
+python skills/yomemado-stamp-maker/scripts/render_stamp.py --art skills/yomemado-stamp-maker/examples/001-art.png --data skills/yomemado-stamp-maker/examples/001.json --font /path/to/local-songti-font --out output
+python skills/yomemado-stamp-maker/scripts/check_stamp.py output/001-front.png output/001-back.png
+```
 
-- **[观看 45 秒真实作品演示](https://jianjidanbenren-eng.github.io/yomemado/#film)**：公开静音版，保留真实作品画面，不包含私人音乐。
-- **[打开互动体验样机](https://jianjidanbenren-eng.github.io/yomemado/demo/)**：点击地图、RELEASE 出票、翻面、下载独立示例 PNG、亲手入藏。使用三个虚构地点和独立绘制的简化界面，不连接私人信件数据，也不等同 W51 完整源码。
+中文短笺需要本地宋体/CJK 字体；按 [Skill 说明](skills/yomemado-stamp-maker/SKILL.md) 传入路径，字体文件不会上传。已有画芯套版与“AI 根据新照片生成画芯”是不同环节；三个历史样例不冒充新一轮全自动生图验收。原六场景规范中的另外三个场景尚未补齐可追溯成品。
 
-## 一封信怎样抵达
+## 收信和藏信规则
 
-| 阶段 | 做的事 | 留下的证据 |
-| --- | --- | --- |
-| 采风 | 查真实地点与来源，分清事实和创作画面 | 地名、坐标依据、来源记录 |
-| 制票 | 生成无字画芯，再由固定版式叠字、边框与齿孔 | 正反面 PNG 与同一 Alpha 蒙版 |
-| 接信 | 校验完整信件与图片，发布到同一站点的数据源 | 候选摘要、哈希、发布索引 |
-| 验收 | 打开真实页面，检查地图、出票、翻面、下载、藏信 | 可见的交互结果；失败时撤回 |
-| 报信 | 确认网页可用后才通知收信人 | 一句地点介绍与原站入口 |
+地图显示当前来信。新信加入后，之前的有效旧信自动进入藏信册并显示 READ / 已读；最新一封等待使用者点入藏。藏信按编号倒序排列，下载使用网页中同一对 PNG。
 
-制票细节见 [制作流程](docs/制作流程.md)，为什么这样设计见 [踩坑复盘](docs/踩坑复盘.md)。[项目小页](index.html)沿用[原机配色](docs/视觉规范.md)，可独立托管，不连接私人站点。
+收藏、最新来信的阅读状态保存在本浏览器，跨设备不自动同步。自动采风、AI 制票、定时投递和跨设备个人账户同步属于后续可接的后端能力，模板不会连接作者的私人服务。
 
-## 设计规则
+## 字体、音乐与来源
 
-- **画芯和排版分开**：图像生成只做无字插画，固定母版负责字和真正透明的齿孔。
-- **地点事实与邮票短名分开**：地图和藏信保留核实过的全名，有限的印刷区才使用准确简称。
-- **抵达和入藏分开**：已发布来信出现在地图；最新一封只在收信人亲自点击后入藏。下一封到来时，上一封进入档案，藏信从新到旧排列。
-- **发布和可见分开**：索引成功后仍需打开原网页；网页失败或数据重复时，原有来信继续可用。
+- 默认调用系统宋体或宋体类衬线字型，可以按喜好更换；不分发系统字体文件。示例 PNG 背面以 Noto Serif CJK（思源宋体类）渲染。
+- 演示视频中的手写字体为白河的[星光小熊猫体幼儿风 Beta 2.1](https://github.com/cyberinkflow/StarPandaKidsFonts)；公开包不含该字体文件。
+- 原项目配乐参考 **AKMU（乐童音乐家）《Farewell》 / SAILING**：[官方收听](https://music.apple.com/us/song/farewell/1480802556)。保留播放器和更换入口，公开包不附原录音。
+- 现有机器与示例的来源、参考项目和边界见 [第三方说明](THIRD_PARTY_NOTICES.md) 与 [公开边界](docs/公开边界.md)。原创代码与文档采用 [MIT License](LICENSE)，不替第三方字体、录音或其他素材授予许可。
 
-## 可以直接使用的部分
-
-`tools/check_stamp.py` 检查两张成品图片的尺寸、RGBA、相同齿孔 Alpha 和透明外角。它不代替肉眼核对画芯、文字、版权，也不生成 W48 原版邮票。
+## 开发检查
 
 ```bash
 python -m pip install -r requirements.txt
-python tools/check_stamp.py path/to/front.png path/to/back.png
+python -m unittest discover -s tests -v
+node --test tests/archive-state.test.cjs
 ```
 
-更多的私有系统、素材取舍和授权说明在 [公开边界](docs/公开边界.md)。本仓库的原创文字与代码采用 [MIT License](LICENSE)；公开静音视频展示本项目的创作画面，音乐和第三方素材不随仓库分发。视频画面不等同于可复用的独立 UI 代码。
-
-## 从零走到这里
-
-1. **构思**：让一台旧邮政机器代替信息列表，用地图红点、黄铜出票键与短笺组织阅读。
-2. **主机和声音**：反复比对机身布局与手机阅读节奏；把机械声、翻纸、钢笔与文字出现的时机定成一套动作。
-3. **制票规范**：将照片转绘和自主采风归入同一流程：无字画芯 → 固定母版 → 正反面 → 图片验收。
-4. **在线接信**：保留原有来信，新增受限写入和只读数据桥；用可撤回测试验证发布、网页交互与回滚。
-5. **持续寄信**：定时任务负责启动一次完整工作。每封新信都要过来源、制票、索引与真实网页四道检查，成功后才报信。
-
-这些是项目已经实践过的设计经验；自然定时运行与每次新作品仍须逐次验收。欢迎把方法用在自己的故事里，并用自己拥有使用权的图像、字体和声音制作新作品。
+本地体验：`cd template` 后运行 `python -m http.server 8000`，打开 http://localhost:8000。请用本地服务器检查 ZIP 下载，避免直接双击 HTML 的文件读取限制。
