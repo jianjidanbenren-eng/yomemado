@@ -15,3 +15,10 @@
 ## 制票入口
 
 在仓库根目录阅读 [制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)、[规则](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/rules.md) 和[三份完整提示词](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md)。先生成无字画芯，再由 Python/Pillow 固定套版；并非给网页配置音乐才能制票。
+
+
+### 原版交互音效
+
+模板沿用原机 W32 音效：V3 黄铜按键、电报码、齿轮、纸张及到达铃，配合原版地图、翻纸、藏信、盖章、开关采样。翻至背面后，原钢笔采样按 770 毫秒延迟、2180 / 2060 毫秒两段和 430 毫秒间隔播放；翻回、合上或关闭音效会取消钢笔声。背面仍为原有整张示例 PNG，不改变文字显示方式。
+
+机音开关控制整套交互声；黄色旋钮控制另行配置的背景音乐。音效可替换 `template/assets/sfx/` 中的对应文件（仅部署模板时路径为 `assets/sfx/`），也可在 `config.js` 设置 `sfxBasePath`。原版采样校验与来源记录见该目录的 `sources.json`；背景歌曲不随模板提供。

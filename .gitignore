@@ -12,3 +12,12 @@ output/
 *.m4a
 *.wav
 *.zip
+# Approved original interaction effects; background recordings stay ignored.
+!template/assets/sfx/switch.mp3
+!template/assets/sfx/coordinate.mp3
+!template/assets/sfx/stamp.mp3
+!template/assets/sfx/flip.mp3
+!template/assets/sfx/pen.mp3
+!template/assets/sfx/archive_save.mp3
+!template/assets/sfx/archive_open.mp3
+!template/assets/sfx/archive_close.mp3

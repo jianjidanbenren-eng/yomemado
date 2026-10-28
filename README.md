@@ -66,3 +66,6 @@ node --test tests/archive-state.test.cjs
 ```
 
 本地体验：`cd template` 后运行 `python -m http.server 8000`，打开 http://localhost:8000。请用本地服务器检查 ZIP 下载，避免直接双击 HTML 的文件读取限制。
+
+
+原版 W32 交互音效已保留，包括 V3 出票、翻纸、两段钢笔声和藏信开合；机音与背景音乐分别控制。音效更换与来源见 [使用说明](template/USAGE.md)。

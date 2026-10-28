@@ -97,7 +97,8 @@ class DeployableTemplateTests(unittest.TestCase):
         logic = (ROOT / "template" / "machine.js").read_text(encoding="utf-8")
         self.assertIn('src="./config.js"', page)
         self.assertIn('src="./letters.js"', page)
-        self.assertIn('src="./machine.js"', page)
+        self.assertIn('src="./machine.js?', page)
+        self.assertIn('src="./audio.js?', page)
         self.assertIn("localStorage", logic)
         self.assertIn("RELEASE", page)
         self.assertIn("入藏", page)
@@ -154,14 +155,33 @@ class DeployableTemplateTests(unittest.TestCase):
             folder = ROOT / "template/assets/stamps"
             self.assertTrue(inspect(folder / f"{tag}-front.png", folder / f"{tag}-back.png")["ok"])
 
-    def test_public_bundle_has_no_font_or_audio_recordings(self):
+    def test_public_bundle_has_only_the_approved_effect_samples(self):
+        import json
+        approved = json.loads((ROOT / "template/assets/sfx/sources.json").read_text())["samples"]
+        effects = {ROOT / "template/assets/sfx" / item["file"] for item in approved.values()}
         for folder in (ROOT / "template", ROOT / "skills"):
             for path in folder.rglob("*"):
+                if path in effects:
+                    continue
                 self.assertNotIn(path.suffix.lower(), {".ttf", ".otf", ".ttc", ".mp3", ".m4a", ".wav"})
                 if path.suffix in {".html", ".css", ".js"}:
                     text = path.read_text(encoding="utf8")
                     self.assertNotIn("data:font", text)
                     self.assertNotIn("application/octet-stream", text)
+
+    def test_approved_w32_samples_and_dispatch_code_are_unchanged(self):
+        import hashlib
+        import json
+        directory = ROOT / "template/assets/sfx"
+        sources = json.loads((directory / "sources.json").read_text())
+        self.assertEqual(set(sources["samples"]), {"switch", "coordinate", "stamp", "flip", "pen", "archive_save", "archive_open", "archive_close"})
+        for sample in sources["samples"].values():
+            data = (directory / sample["file"]).read_bytes()
+            self.assertEqual(len(data), sample["bytes"])
+            self.assertEqual(hashlib.sha256(data).hexdigest(), sample["sha256"])
+        code = (ROOT / "template/audio.js").read_text()
+        block = code.split("// ORIGINAL_V3_BEGIN: retained verbatim from the approved machine.\n")[1].split("    // ORIGINAL_V3_END")[0]
+        self.assertEqual(hashlib.sha256(block.encode()).hexdigest(), sources["mechanismCodeSha256"])
 
     def test_deploy_root_is_the_machine(self):
         import tomllib

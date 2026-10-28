@@ -20,4 +20,4 @@ jobs:
         with:
           node-version: "22"
       - name: Check newest-letter, archive and READ rules
-        run: node --test tests/archive-state.test.cjs
+        run: node --test tests/*.test.cjs
