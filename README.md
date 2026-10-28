@@ -32,6 +32,8 @@ Vercel 根目录选 `template`；Netlify 使用仓库配置。模板是静态网
 
 Skill 附六套原图与完整双面邮票对照；机器加载的公开样例为布达拉宫、普莫雍错、苏州留园，当前三个地图点对应两枚已读旧信，最新一枚亲手入藏。阅读与收藏默认保存在本浏览器；后端接入另见进阶说明。
 
+邮票形式、排版与尺寸可以按自己的想法另定；随包样式是作者当前选择的默认系列。沿用默认版可直接制票，改版按[定制方法](skills/yomemado-stamp-maker/references/rules.md#用户想换形式排版或大小时)适配母版与程序。
+
 灵感感谢[池又雨 / Yinglianchun](https://github.com/Yinglianchun)；制票方法学习并改写自 **cakeni、Yan Liu、FANTASY／梵想美学**的公开 Skill。原项目、改写与许可见上方致谢入口，Skill 内也保留来源与许可原文。项目页使用用户的 45 秒有声原片。
 
 ## 开发检查

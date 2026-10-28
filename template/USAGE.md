@@ -24,7 +24,7 @@
 | 背景音乐 | `musicUrl`、`musicCredit`、`musicLink` | 可设为 `assets/music/your-track.mp3` 或留空；选择有相应使用权的音乐 |
 | 独立作品的本地记录 | `storageKey` | 不同作品使用不同值，不清空现有使用者记录 |
 | 来信和地点 | `letters.js` | 三位数字 `id` 不重复；填写 `date`、`title`、`place`、`region`、两段 `paragraphs`、`signature`、`mapX/mapY`、正反图片路径 |
-| 邮票图片 | `assets/stamps/` | 正反面均 736×1040 RGBA，`frontImage/backImage` 指向实际文件 |
+| 邮票图片 | `assets/stamps/` | 默认正反面均 736×1040 RGBA，`frontImage/backImage` 指向实际文件；新比例另按下方改版说明适配 |
 | 外壳与颜色 | `custom.css` | 可换纹理、配色和尺寸；保留交互元素 ID，修改后重新检查窄屏 |
 
 地图坐标 `mapX/mapY` 范围为 0–100；经纬度未核实就填 `null`，不编造。已有示例为地区示意，具体摄影位置、留园房间及精确坐标未独立核实。
@@ -96,6 +96,12 @@
 4. **成品验收：**运行 Skill 内唯一的 `scripts/check_stamp.py`，再在白、黑、棋盘格底看边缘、字形、正文和落款；核对实际下载。保存画芯、JSON、正反面、来源和结果。
 
 程序检查不代替事实与视觉检查；旧画芯跑通套版不代表本轮新生图成功。具体命令、规则和六份完整提示词统一放在 Skill，不在这里维护第二套。
+
+### 换成自己喜欢的邮票形式
+
+当前竖版、尺寸、标题位置和齿孔是作者这一版喜欢的样式。你可以另做方形、横版或其他排版与大小。先在自己的项目中确定新母版，再按 Skill 的[定制方法](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/rules.md#用户想换形式排版或大小时)同步适配画芯、渲染和检查；随包脚本仍专用于默认 736×1040 规格。
+
+只生成新样式邮票时不必接入机器。若还要替换机器里的邮票比例或背面排版，另行调整 `custom.css` 的阅读卡片、出票缩略图与翻面尺寸，以及 `.reader-writing-surface`、`.reader-letter`、`.reader-sign` 书写区域，使文字层与新 PNG 对齐；核对最终 CSS 覆盖规则。默认模板的这些位置已按现有双面 PNG 校准，直接换图可能拉伸或错位。接入后实际检查窄屏、翻面、写字、下载和入藏。
 
 ## 音效与外观
 
