@@ -118,6 +118,31 @@ class DeployableTemplateTests(unittest.TestCase):
         for needle in forbidden:
             self.assertNotIn(needle, content)
 
+    def test_reader_controls_are_outside_the_flip_button(self):
+        from html.parser import HTMLParser
+
+        class ReaderParser(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.buttons = []
+                self.nested = []
+
+            def handle_starttag(self, tag, attrs):
+                if tag == "button":
+                    identity = dict(attrs).get("id")
+                    if self.buttons:
+                        self.nested.append((self.buttons[-1], identity))
+                    self.buttons.append(identity)
+
+            def handle_endtag(self, tag):
+                if tag == "button" and self.buttons:
+                    self.buttons.pop()
+
+        parser = ReaderParser()
+        parser.feed((ROOT / "template/index.html").read_text())
+        self.assertEqual(parser.nested, [], "Nested buttons break browser layout and flip actions")
+        self.assertEqual(parser.buttons, [])
+
     def test_readme_has_one_click_deploy_buttons(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("vercel.com/new/clone", readme)

@@ -263,31 +263,30 @@
 </div>
 <div class="archive-backdrop" id="archiveShade"></div>
 <details class="project-credits"><summary>制作、素材来源与更换说明 ↗</summary><div class="credits-body"><p>公开示例使用历史制票测试中的布达拉宫、普莫雍错、苏州留园作品；示例并非私人来信，也不表示精确实拍点位。</p><p>机器外壳、示例图片、字体与音乐均可按喜好更换。模板默认调用系统宋体/宋体类衬线字体。<a href="USAGE.md">更换方法</a></p><p>原项目配乐参考：AKMU（乐童音乐家）《Farewell》，专辑 SAILING。<a href="https://music.apple.com/us/song/farewell/1480802556" target="_blank" rel="noopener noreferrer">官方收听 ↗</a>。模板提供音乐配置入口，未附原录音。</p><p>项目演示视频中的手写字体：白河创作的「星光小熊猫体幼儿风 Beta 2.1」。<a href="https://github.com/cyberinkflow/StarPandaKidsFonts" target="_blank" rel="noopener noreferrer">作者字体库 ↗</a>。模板未附字体文件。</p><p class="public-links"><a href="https://jianjidanbenren-eng.github.io/yomemado/">项目与视频</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md">制票 Skill</a><a href="https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/%E5%85%AC%E5%BC%80%E8%BE%B9%E7%95%8C.md">素材来源与公开说明</a></p></div></details><aside class="archive" id="archive" aria-hidden="true" aria-label="藏信收藏册"><div class="archive-head"><div><h2>藏信</h2><small>WORLD LETTERS · 最新来信在前</small></div><button class="close-icon" id="closeArchive" aria-label="关闭藏信">×</button></div><div class="collection-overline"><span>COLLECTED STAMPS</span><span class="collection-count" id="collectedCount">000</span></div><div id="archiveList"></div><div class="archive-bottom"><div class="archive-left"><button class="reprint-letter" id="reprintLetter" type="button" title="再次出票，不清空已收藏来信">↻ 再次出票</button></div><div class="archive-right"><div class="archive-note">世界很大，来信慢慢抵达。</div></div></div></aside>
-<div class="reader-shade" id="readerShade" role="dialog" aria-modal="true" aria-label="查看邮票来信"><div class="reader"><div class="reader-top"><span>YOMEMADO　·　LETTER 001</span><button id="readerSoundToggle" class="reader-sound" type="button" aria-pressed="true" title="关闭音效" aria-label="关闭音效"><span aria-hidden="true">♪</span></button></div><button class="reader-card" id="readerCard" aria-label="翻转邮票查看另一面"><div class="card-rotator"><div class="cardface front"><div class="stamp" id="readerFront"></div></div><div class="cardface back"><div class="stamp" id="readerBack"></div></div><div class="reader-actions" role="group" aria-label="邮票操作"><button id="flipBtn" type="button" title="翻至邮票另一面" aria-label="翻阅邮票"><span class="action-glyph" aria-hidden="true">↻</span><span>翻阅</span></button><button id="downloadBothBtn" type="button" title="将正反两面高清 PNG 合为 ZIP 保存" aria-label="存图：下载正面和背面高清邮票"><span class="action-glyph" aria-hidden="true">↓</span><span>存图</span></button><button id="closeReader" type="button" title="合上来信，归入藏信册" aria-label="入藏，合上来信"><span class="action-glyph" aria-hidden="true">◇</span><span>入藏</span></button></div><div class="download-feedback" id="downloadFeedback" role="status" aria-live="polite"></div><div class="reader-subtitle" id="readerMessage">轻触邮票，翻阅背面的示例来信。</div></div></button></div>
+<div class="reader-shade" id="readerShade" role="dialog" aria-modal="true" aria-label="查看邮票来信">
+  <div class="reader">
+    <div class="reader-top"><span>YOMEMADO · LETTER 001</span><button id="readerSoundToggle" class="reader-sound" type="button" aria-pressed="true" title="关闭音效" aria-label="关闭音效"><span aria-hidden="true">♪</span></button></div>
+    <button class="reader-card" id="readerCard" type="button" aria-label="翻转邮票查看另一面">
+      <div class="card-rotator">
+        <div class="cardface front"><div class="stamp" id="readerFront"></div></div>
+        <div class="cardface back"><div class="stamp" id="readerBack"></div></div>
+      </div>
+    </button>
+    <div class="reader-actions" role="group" aria-label="邮票操作">
+      <button id="flipBtn" type="button" title="翻至邮票另一面" aria-label="翻阅邮票"><span class="action-glyph" aria-hidden="true">↻</span><span>翻阅</span></button>
+      <button id="downloadBothBtn" type="button" title="将正反两面高清 PNG 合为 ZIP 保存" aria-label="存图：下载正面和背面高清邮票"><span class="action-glyph" aria-hidden="true">↓</span><span>存图</span></button>
+      <button id="closeReader" type="button" title="合上来信，归入藏信册" aria-label="入藏，合上来信"><span class="action-glyph" aria-hidden="true">◇</span><span>入藏</span></button>
+    </div>
+    <div class="download-feedback" id="downloadFeedback" role="status" aria-live="polite"></div>
+    <div class="reader-subtitle" id="readerMessage">轻触邮票，翻阅背面的示例来信。</div>
+  </div>
+</div>
 <div class="toast" id="toast" role="status"></div>
-
-
-
-
-
-
-
-
-
-
-
-<audio id="farewellAudio" loop="" playsinline="" preload="metadata" style="display:none" webkit-playsinline=""></audio>
-
-
-
-
-
-
-
-
-
-
-
-
-</div><script src="./config.js"></script><script src="./letters.js"></script><script src="./state.js"></script><script src="./machine.js"></script><script src="./download.js"></script></body>
+<audio id="farewellAudio" loop playsinline preload="none" style="display:none"></audio>
+<script src="./config.js"></script>
+<script src="./letters.js"></script>
+<script src="./state.js"></script>
+<script src="./machine.js"></script>
+<script src="./download.js"></script>
+</body>
 </html>
