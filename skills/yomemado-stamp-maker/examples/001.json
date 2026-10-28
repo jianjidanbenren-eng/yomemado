@@ -35,6 +35,11 @@
     ],
     "providedBy": "User",
     "photographer": "Not independently verified",
-    "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs."
+    "rights": "User provided the reference and requested inclusion for comparison; the repository MIT license does not relicense third-party photographs.",
+    "sourcePlatform": "小红书",
+    "creditLine": "原照片来源：小红书",
+    "sourcePlatformConfirmedBy": "User on 2026-10-28",
+    "sourcePostUrl": null,
+    "sourceAccount": null
   }
 }
