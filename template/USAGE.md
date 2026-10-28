@@ -16,6 +16,12 @@
 
 在仓库根目录阅读 [制票 Skill](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/SKILL.md)、[规则](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/rules.md) 和[三份完整提示词](https://github.com/jianjidanbenren-eng/yomemado/blob/main/skills/yomemado-stamp-maker/references/prompts.md)。先生成无字画芯，再由 Python/Pillow 固定套版；并非给网页配置音乐才能制票。
 
+## 自动投递与跨设备接入
+
+请将[接入说明](https://github.com/jianjidanbenren-eng/yomemado/blob/main/docs/自动投递与跨设备接入.md)交给接手的小机。按配置单接部署者自己的存储、受保护写入、在线读桥和云定时任务；先手动投递一封并验收，再设日程。静态模板没有只需填地址就生效的在线读信开关。
+
+各设备读到同一批来信，与最新信的个人阅读/收藏跨设备同步不同。前者复用在线发布索引，后者另需登录与状态数据库；不接后者时继续按浏览器保存，不影响旧信自动入藏及已读规则。文档给出了权限边界、重复投递与回滚、桌面和手机验收，以及可直接复制的接手提示词。
+
 
 ### 原版交互音效
 
