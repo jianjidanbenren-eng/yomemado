@@ -413,3 +413,15 @@ body,.name-main,.archive h2,.back-paper .letter,.back-paper .sign{font-family:va
 .reader-letter .ym-writing-paragraph+.ym-writing-paragraph{margin-top:16.64402174px}
 .reader-sign{position:absolute;right:2.00668896%;bottom:0;font:400 9.17119565px/1.2 var(--public-font);letter-spacing:0;white-space:nowrap;text-align:right}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* Archive footer: two compact controls and the note stay on one row. */
+.archive-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;min-height:84px;flex-wrap:nowrap}
+.archive-actions{display:flex;align-items:flex-end;gap:4px;flex:0 0 auto;padding-bottom:2px}
+.archive-action{box-sizing:border-box;height:16.5px;margin:0!important;padding:2px 4px!important;border:1px solid #b4a891;border-radius:4px;background:transparent;color:#667272;font:650 7px/1 var(--public-font)!important;letter-spacing:.04em;white-space:nowrap}
+.archive-action:hover{background:#ede6d5;color:#354d51}
+.archive-bottom .archive-note{flex:0 1 auto;max-width:none;margin:0;padding-bottom:2px;color:#5e6e70;font:400 14px/1.25 var(--public-font)!important;text-align:right;white-space:nowrap}
+.pin.previous-pin .pin-core,.pin.previous-pin.read .pin-core{background:#1f5d77;border-color:#e8f0e8;box-shadow:0 0 0 2px #174c63,0 0 14px #315f72}
+.pin.previous-pin .pin-wave,.pin.previous-pin.read .pin-wave{border-color:#245f78}
+.pin.latest-pin .pin-core,.pin.latest-pin.read .pin-core{background:#d85142;border-color:#ffe9c9;box-shadow:0 0 0 2px #b64639,0 0 14px #bd493d}
+.pin.latest-pin .pin-wave,.pin.latest-pin.read .pin-wave{border-color:#c84e3d}

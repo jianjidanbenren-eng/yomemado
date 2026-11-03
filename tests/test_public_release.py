@@ -201,6 +201,21 @@ class DeployableTemplateTests(unittest.TestCase):
         self.assertEqual(data["build"], {"base": "template", "publish": "."})
 
 
+    def test_archive_export_and_pin_identity_are_packaged(self):
+        html = (ROOT / "template/index.html").read_text()
+        machine = (ROOT / "template/machine.js").read_text()
+        download = (ROOT / "template/download.js").read_text()
+        css = (ROOT / "template/machine.css").read_text()
+        self.assertIn('id="downloadArchiveBtn"', html)
+        self.assertIn("window.yomemadoCollectedLetters=archived.slice()", machine)
+        self.assertIn("testOnly!==true", download)
+        self.assertIn("previous-pin", machine)
+        self.assertIn("latest-pin", machine)
+        self.assertIn(".archive-actions", css)
+        self.assertIn("font:650 7px/1", css)
+        self.assertIn("white-space:nowrap", css)
+
+
 class PublicSkillTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

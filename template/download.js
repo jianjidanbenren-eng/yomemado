@@ -29,6 +29,26 @@
     end.setUint32(0,0x06054b50,true);end.setUint16(8,items.length,true);end.setUint16(10,items.length,true);end.setUint32(12,centSize,true);end.setUint32(16,pos,true);
     return new Blob([...parts,...central,toBytes(end)],{type:'application/zip'});
   }
+  async function downloadArchive(){
+    const archiveBtn=document.getElementById('downloadArchiveBtn');if(!archiveBtn)return;
+    archiveBtn.disabled=true;const original=archiveBtn.textContent;archiveBtn.textContent='整理中';
+    try{
+      const letters=(window.yomemadoCollectedLetters||[]).filter(l=>l&&l.testOnly!==true);
+      if(!letters.length)throw new Error('No collected letters');
+      const items=[];
+      for(const l of letters){
+        const [front,back]=await Promise.all([pngBytes(l.frontTemplateId,l.frontImage),pngBytes(l.backTemplateId,l.backImage)]);
+        items.push({name:l.id+'-正面.png',data:front},{name:l.id+'-背面.png',data:back});
+      }
+      const url=URL.createObjectURL(zipPair(items)),a=document.createElement('a');
+      a.href=url;a.download='游目窗-藏信全部-'+String(letters.length).padStart(3,'0')+'枚.zip';document.body.append(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),20000);
+      window.yomemadoPlaySfx?.('save');window.yomemadoNotify?.('藏信中的完整正反面邮票已装入同一份 ZIP。');
+    }catch(err){console.error('Archive ZIP export failed:',err);window.yomemadoNotify?.('下载全部未成功，请确认藏信中已有邮票后重试。');}
+    finally{archiveBtn.textContent=original;archiveBtn.disabled=false;}
+  }
+  document.getElementById('downloadArchiveBtn')?.addEventListener('click',downloadArchive);
+
   btn.addEventListener('click',async()=>{
     btn.disabled=true;const label=btn.querySelectorAll('span')[1];label.textContent='整理中';
     try{
